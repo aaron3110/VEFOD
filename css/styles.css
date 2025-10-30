@@ -816,8 +816,48 @@ button {
     background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2300395e' fill-opacity='0.02' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
 }
 
-.products__tabs {
+/* Tabs (legacy) */
+.products__tabs { margin-top: var(--spacing-12); }
+
+/* New simple product lists */
+.products__lists {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-8);
     margin-top: var(--spacing-12);
+}
+
+.product-list {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-2xl);
+    padding: var(--spacing-8);
+    box-shadow: var(--shadow-md);
+}
+
+.product-list__title {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+    color: var(--primary-color);
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-4);
+}
+
+.product-list__title i {
+    background: rgba(0, 160, 227, 0.12);
+    color: var(--accent-color);
+    width: 42px;
+    height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    font-size: 22px;
+}
+
+.product-list__items {
+    margin-top: var(--spacing-2);
 }
 
 .tabs__header {
@@ -2660,6 +2700,30 @@ button {
     left: 0;
     color: var(--secondary-color);
     font-weight: var(--font-bold);
+}
+
+/* Generic icon list used in services and products */
+.icon-list { padding: 0; }
+.icon-list li {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    padding-left: 0;
+}
+.icon-list li i {
+    color: var(--accent-color);
+    background: rgba(0, 160, 227, 0.1);
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+}
+.icon-list li span { color: var(--gray-700); }
+
+@media screen and (max-width: 768px) {
+    .products__lists { grid-template-columns: 1fr; }
 }
 
 /*=============== MAP SECTION ===============*/
