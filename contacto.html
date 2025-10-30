@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - VEFOD Media & Diseño</title>
+    <meta name="description" content="Contacta con VEFOD Media & Diseño para cotizaciones, consultas y proyectos de impresión, rotulación y diseño gráfico.">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Remixicon para iconos -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header__inner">
+                <a href="index.html" class="header__logo">
+                    <img src="img/vefod-logo.png" alt="VEFOD Media & Diseño" class="header__logo-img">
+                </a>
+
+                <div class="header__menu-section">
+                    <nav class="nav" id="nav">
+                        <ul class="nav__list">
+                            <li class="nav__item"><a href="index.html" class="nav__link">Inicio</a></li>
+                            <li class="nav__item"><a href="servicios.html" class="nav__link">Servicios</a></li>
+                            <li class="nav__item"><a href="productos.html" class="nav__link">Productos</a></li>
+                            <li class="nav__item"><a href="contacto.html" class="nav__link active">Contacto</a></li>
+                        </ul>
+                    </nav>
+
+                    <div class="header__actions">
+                        <a href="contacto.html" class="btn btn--primary">Cotizar</a>
+                        <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú">
+                            <i class="ri-menu-line"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-hero__content">
+                    <h1 class="page-hero__title">Contacto</h1>
+                    <p class="page-hero__subtitle">Estamos aquí para ayudarte</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact section" id="contacto">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Ponte en Contacto</h2>
+                    <p class="section__subtitle">Solicita tu cotización o resuelve tus dudas</p>
+                </div>
+
+                <div class="contact__content">
+                    <div class="contact__info">
+                        <div class="contact__item">
+                            <div class="contact__icon">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <div class="contact__details">
+                                <h3 class="contact__title">Ubicación</h3>
+                                <p class="contact__text">San José, Costa Rica</p>
+                                <p class="contact__text">Zona Central</p>
+                            </div>
+                        </div>
+
+                        <div class="contact__item">
+                            <div class="contact__icon">
+                                <i class="ri-phone-line"></i>
+                            </div>
+                            <div class="contact__details">
+                                <h3 class="contact__title">Teléfono</h3>
+                                <p class="contact__text">+506 2222-2222</p>
+                                <p class="contact__text">+506 3333-3333</p>
+                            </div>
+                        </div>
+
+                        <div class="contact__item">
+                            <div class="contact__icon">
+                                <i class="ri-mail-line"></i>
+                            </div>
+                            <div class="contact__details">
+                                <h3 class="contact__title">Email</h3>
+                                <p class="contact__text">info@vefod.com</p>
+                                <p class="contact__text">ventas@vefod.com</p>
+                            </div>
+                        </div>
+
+                        <div class="contact__item">
+                            <div class="contact__icon">
+                                <i class="ri-whatsapp-line"></i>
+                            </div>
+                            <div class="contact__details">
+                                <h3 class="contact__title">WhatsApp</h3>
+                                <p class="contact__text">+506 7000-0000</p>
+                                <p class="contact__text">Atención inmediata</p>
+                            </div>
+                        </div>
+
+                        <div class="contact__item">
+                            <div class="contact__icon">
+                                <i class="ri-time-line"></i>
+                            </div>
+                            <div class="contact__details">
+                                <h3 class="contact__title">Horarios</h3>
+                                <p class="contact__text">Lunes a Viernes: 8:00 AM - 6:00 PM</p>
+                                <p class="contact__text">Sábados: 8:00 AM - 2:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form class="contact__form" id="contactForm">
+                        <div class="form__group">
+                            <input type="text" id="name" name="name" class="form__input" placeholder="Nombre completo" required>
+                        </div>
+                        <div class="form__group">
+                            <input type="email" id="email" name="email" class="form__input" placeholder="Correo electrónico" required>
+                        </div>
+                        <div class="form__group">
+                            <input type="tel" id="phone" name="phone" class="form__input" placeholder="Teléfono">
+                        </div>
+                        <div class="form__group">
+                            <select id="service" name="service" class="form__input" required>
+                                <option value="">Selecciona un servicio</option>
+                                <option value="impresion">Impresión Gran Formato</option>
+                                <option value="estructuras">Estructuras Publicitarias</option>
+                                <option value="rotulacion">Rotulación</option>
+                                <option value="diseno">Diseño Gráfico</option>
+                                <option value="personalizado">Proyecto Personalizado</option>
+                            </select>
+                        </div>
+                        <div class="form__group">
+                            <textarea id="message" name="message" class="form__input form__textarea" placeholder="Cuéntanos sobre tu proyecto" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn--primary btn--full">
+                            <span>Enviar Mensaje</span>
+                            <i class="ri-send-plane-line"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <section class="map section" id="map">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Nuestra Ubicación</h2>
+                    <p class="section__subtitle">Visítanos en nuestras instalaciones</p>
+                </div>
+                
+                <div class="map__container">
+                    <div class="map__placeholder">
+                        <i class="ri-map-pin-line"></i>
+                        <p>Mapa interactivo de Google Maps</p>
+                        <small>San José, Costa Rica</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq section" id="faq">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Preguntas Frecuentes</h2>
+                    <p class="section__subtitle">Resolvemos tus dudas más comunes</p>
+                </div>
+
+                <div class="faq__list">
+                    <div class="faq__item">
+                        <button class="faq__question">
+                            <span>¿Cuánto tiempo toma la producción?</span>
+                            <i class="ri-add-line"></i>
+                        </button>
+                        <div class="faq__answer">
+                            <p>El tiempo de producción varía según el tipo de proyecto. Las impresiones simples pueden estar listas en 24-48 horas, mientras que las estructuras complejas pueden tomar de 3-7 días hábiles.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq__item">
+                        <button class="faq__question">
+                            <span>¿Ofrecen instalación?</span>
+                            <i class="ri-add-line"></i>
+                        </button>
+                        <div class="faq__answer">
+                            <p>Sí, ofrecemos servicio de instalación profesional para todos nuestros productos. La instalación está incluida en el precio de las estructuras publicitarias.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq__item">
+                        <button class="faq__question">
+                            <span>¿Qué métodos de pago aceptan?</span>
+                            <i class="ri-add-line"></i>
+                        </button>
+                        <div class="faq__answer">
+                            <p>Aceptamos efectivo, transferencias bancarias, tarjetas de crédito y débito. También ofrecemos facilidades de pago para proyectos grandes.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq__item">
+                        <button class="faq__question">
+                            <span>¿Hacen envíos a todo el país?</span>
+                            <i class="ri-add-line"></i>
+                        </button>
+                        <div class="faq__answer">
+                            <p>Sí, realizamos envíos a todo Costa Rica. Los costos de envío varían según la ubicación y el tamaño del producto.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <img src="img/vefod-logo.png" alt="VEFOD Media & Diseño" class="footer__logo">
+                    <p class="footer__description">
+                        Soluciones profesionales de diseño, impresión y rotulación para hacer destacar tu negocio con la mejor calidad.
+                    </p>
+                </div>
+
+                <div class="footer__links">
+                    <div class="footer__column">
+                        <h3 class="footer__title">Enlaces Rápidos</h3>
+                        <ul class="footer__list">
+                            <li><a href="servicios.html" class="footer__link">Servicios</a></li>
+                            <li><a href="productos.html" class="footer__link">Productos</a></li>
+                            <li><a href="contacto.html" class="footer__link">Contacto</a></li>
+                            <li><a href="contacto.html" class="footer__link">Cotizar</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer__column">
+                        <h3 class="footer__title">Contáctanos</h3>
+                        <div class="footer__contact">
+                            <div class="footer__contact-item">
+                                <i class="ri-map-pin-line"></i>
+                                <span>Frente a la academia de bomberos, San Antonio de Desamparados, San José, Desamparados, 10301</span>
+                            </div>
+                            <div class="footer__contact-item">
+                                <i class="ri-phone-line"></i>
+                                <span>+506 6102 5947</span>
+                            </div>
+                            <div class="footer__contact-item">
+                                <i class="ri-mail-line"></i>
+                                <span>vefod7@gmail.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer__divider"></div>
+
+            <div class="footer__bottom">
+                <p class="footer__copyright">
+                    &copy; 2025 VEFOD Media & Diseño. Todos los derechos reservados.
+                </p>
+                <div class="footer__social">
+                    <a href="#" class="footer__social-link" aria-label="Facebook">
+                        <i class="ri-facebook-fill"></i>
+                    </a>
+                    <a href="#" class="footer__social-link" aria-label="Instagram">
+                        <i class="ri-instagram-line"></i>
+                    </a>
+                    <a href="#" class="footer__social-link" aria-label="WhatsApp">
+                        <i class="ri-whatsapp-line"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <div class="whatsapp-fab" id="whatsappFab" aria-label="Contactar por WhatsApp">
+        <i class="ri-whatsapp-line"></i>
+    </div>
+
+    <div class="whatsapp-menu" id="whatsappMenu" hidden>
+        <a href="https://wa.me/50661025947/?text=Hola%20VEFOD,%20necesito%20información." target="_blank" rel="noopener" class="whatsapp-menu__item">
+            <span>Atención General</span>
+            <small>+506 6102 5947</small>
+        </a>
+        <a href="https://wa.me/50664667443/?text=Hola,%20quisiera%20cotizar%20diseño." target="_blank" rel="noopener" class="whatsapp-menu__item">
+            <span></span>
+            <small>+506 64667443</small>
+        </a>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - VEFOD Media & Diseño</title>
+    <meta name="description" content="Catálogo completo de productos de VEFOD Media & Diseño: plumas publicitarias, roller up, arañas publicitarias, viniles y más.">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Remixicon para iconos -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header__inner">
+                <a href="index.html" class="header__logo">
+                    <img src="img/vefod-logo.png" alt="VEFOD Media & Diseño" class="header__logo-img">
+                </a>
+
+                <div class="header__menu-section">
+                    <nav class="nav" id="nav">
+                        <ul class="nav__list">
+                            <li class="nav__item"><a href="index.html" class="nav__link">Inicio</a></li>
+                            <li class="nav__item"><a href="servicios.html" class="nav__link">Servicios</a></li>
+                            <li class="nav__item"><a href="productos.html" class="nav__link active">Productos</a></li>
+                            <li class="nav__item"><a href="contacto.html" class="nav__link">Contacto</a></li>
+                        </ul>
+                    </nav>
+
+                    <div class="header__actions">
+                        <a href="contacto.html" class="btn btn--primary">Cotizar</a>
+                        <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú">
+                            <i class="ri-menu-line"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-hero__content">
+                    <h1 class="page-hero__title">Nuestros Productos</h1>
+                    <p class="page-hero__subtitle">Catálogo completo de soluciones publicitarias</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section class="products section" id="productos">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Catálogo de Productos</h2>
+                    <p class="section__subtitle">Soluciones de alta calidad para tus necesidades</p>
+                </div>
+
+                <div class="products__tabs">
+                    <div class="tabs__header">
+                        <button class="tab__btn active" data-category="plumas">Plumas Publicitarias</button>
+                        <button class="tab__btn" data-category="roller">Roller Up</button>
+                        <button class="tab__btn" data-category="aranas">Arañas Publicitarias</button>
+                        <button class="tab__btn" data-category="stand">Stand Publicitario</button>
+                        <button class="tab__btn" data-category="viniles">Viniles</button>
+                    </div>
+
+                    <div class="tabs__content">
+                        <!-- Plumas Publicitarias -->
+                        <div class="tab__pane active" id="plumas">
+                            <div class="product-card">
+                                <div class="product-card__image">
+                                    <img src="img/plumas-publicitarias.jpg" alt="Plumas Publicitarias" class="product-img">
+                                </div>
+                                <div class="product-card__content">
+                                    <h3 class="product-card__title">Plumas Publicitarias</h3>
+                                    
+                                    <div class="product-specs">
+                                        <div class="specs__header">
+                                            <h4>MEDIDAS:</h4>
+                                        </div>
+                                        <ul class="specs__list">
+                                            <li><span class="specs__value">2.50m</span></li>
+                                            <li><span class="specs__value">3.50m</span></li>
+                                            <li><span class="specs__value">4.50m</span></li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="product-includes">
+                                        <div class="includes__header">
+                                            <h4>INCLUYEN:</h4>
+                                        </div>
+                                        <ul class="includes__list">
+                                            <li>Base de metal con flotador</li>
+                                            <li>Estructura flexible</li>
+                                            <li>Tela sublimada por 1 lado o ambos lados (varía el costo)</li>
+                                            <li>Instalación incluida</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="product-price">
+                                        <span class="price__label">Desde:</span>
+                                        <span class="price__value">$120</span>
+                                    </div>
+                                    
+                                    <a href="contacto.html" class="product-card__btn">Cotizar</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Roller Up -->
+                        <div class="tab__pane" id="roller">
+                            <div class="product-card">
+                                <div class="product-card__image">
+                                    <img src="img/roller-up.jpg" alt="Roller Up" class="product-img">
+                                </div>
+                                <div class="product-card__content">
+                                    <h3 class="product-card__title">Roller Up</h3>
+                                    
+                                    <div class="product-specs">
+                                        <div class="specs__header">
+                                            <h4>MEDIDAS:</h4>
+                                        </div>
+                                        <ul class="specs__list">
+                                            <li><span class="specs__value">2.00m x 0.80m</span></li>
+                                            <li><span class="specs__value">2.00m x 1.00m</span></li>
+                                            <li><span class="specs__value">2.00m x 1.20m</span></li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="product-includes">
+                                        <div class="includes__header">
+                                            <h4>INCLUYEN:</h4>
+                                        </div>
+                                        <ul class="includes__list">
+                                            <li>Sistema retráctil profesional</li>
+                                            <li>Base estabilizadora</li>
+                                            <li>Lona impresa de alta calidad</li>
+                                            <li>Maletín de transporte</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="product-price">
+                                        <span class="price__label">Desde:</span>
+                                        <span class="price__value">$150</span>
+                                    </div>
+                                    
+                                    <a href="contacto.html" class="product-card__btn">Cotizar</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Arañas Publicitarias -->
+                        <div class="tab__pane" id="aranas">
+                            <div class="product-card">
+                                <div class="product-card__image">
+                                    <img src="img/aranas-publicitarias.jpg" alt="Arañas Publicitarias" class="product-img">
+                                </div>
+                                <div class="product-card__content">
+                                    <h3 class="product-card__title">Arañas Publicitarias</h3>
+                                    
+                                    <div class="product-specs">
+                                        <div class="specs__header">
+                                            <h4>MEDIDAS:</h4>
+                                        </div>
+                                        <ul class="specs__list">
+                                            <li><span class="specs__value">3.00m</span></li>
+                                            <li><span class="specs__value">4.00m</span></li>
+                                            <li><span class="specs__value">5.00m</span></li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="product-includes">
+                                        <div class="includes__header">
+                                            <h4>INCLUYEN:</h4>
+                                        </div>
+                                        <ul class="includes__list">
+                                            <li>Estructura de metal resistente</li>
+                                            <li>Sistema de anclaje</li>
+                                            <li>Tela sublimada</li>
+                                            <li>Instalación profesional</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="product-price">
+                                        <span class="price__label">Desde:</span>
+                                        <span class="price__value">$200</span>
+                                    </div>
+                                    
+                                    <a href="contacto.html" class="product-card__btn">Cotizar</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Stand Publicitario -->
+                        <div class="tab__pane" id="stand">
+                            <div class="product-card">
+                                <div class="product-card__image">
+                                    <img src="img/stand-publicitario.jpg" alt="Stand Publicitario" class="product-img">
+                                </div>
+                                <div class="product-card__content">
+                                    <h3 class="product-card__title">Stand Publicitario</h3>
+                                    
+                                    <div class="product-specs">
+                                        <div class="specs__header">
+                                            <h4>MEDIDAS:</h4>
+                                        </div>
+                                        <ul class="specs__list">
+                                            <li><span class="specs__value">2.00m x 1.00m</span></li>
+                                            <li><span class="specs__value">3.00m x 1.50m</span></li>
+                                            <li><span class="specs__value">4.00m x 2.00m</span></li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="product-includes">
+                                        <div class="includes__header">
+                                            <h4>INCLUYEN:</h4>
+                                        </div>
+                                        <ul class="includes__list">
+                                            <li>Estructura modular</li>
+                                            <li>Paneles publicitarios</li>
+                                            <li>Mostrador opcional</li>
+                                            <li>Iluminación LED</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="product-price">
+                                        <span class="price__label">Desde:</span>
+                                        <span class="price__value">$300</span>
+                                    </div>
+                                    
+                                    <a href="contacto.html" class="product-card__btn">Cotizar</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Viniles -->
+                        <div class="tab__pane" id="viniles">
+                            <div class="product-card">
+                                <div class="product-card__image">
+                                    <img src="img/viniles.jpg" alt="Viniles" class="product-img">
+                                </div>
+                                <div class="product-card__content">
+                                    <h3 class="product-card__title">Viniles</h3>
+                                    
+                                    <div class="product-specs">
+                                        <div class="specs__header">
+                                            <h4>TIPOS:</h4>
+                                        </div>
+                                        <ul class="specs__list">
+                                            <li><span class="specs__value">Adhesivo</span></li>
+                                            <li><span class="specs__value">Microperforado</span></li>
+                                            <li><span class="specs__value">Removible</span></li>
+                                            <li><span class="specs__value">Electrostático</span></li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="product-includes">
+                                        <div class="includes__header">
+                                            <h4>APLICACIONES:</h4>
+                                        </div>
+                                        <ul class="includes__list">
+                                            <li>Vehículos</li>
+                                            <li>Ventanas</li>
+                                            <li>Paredes</li>
+                                            <li>Superficies lisas</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="product-price">
+                                        <span class="price__label">Desde:</span>
+                                        <span class="price__value">$15/m²</span>
+                                    </div>
+                                    
+                                    <a href="contacto.html" class="product-card__btn">Cotizar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta section" id="cta">
+            <div class="container">
+                <div class="cta__content">
+                    <h2 class="cta__title">¿Interesado en Algún Producto?</h2>
+                    <p class="cta__description">
+                        Contáctanos para obtener una cotización personalizada y conocer más detalles sobre nuestros productos.
+                    </p>
+                    <div class="cta__buttons">
+                        <a href="contacto.html" class="btn btn--primary btn--large">
+                            <span>Solicitar Cotización</span>
+                            <i class="ri-customer-service-line"></i>
+                        </a>
+                        <a href="servicios.html" class="btn btn--outline btn--large">
+                            <span>Ver Servicios</span>
+                            <i class="ri-eye-line"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <img src="img/vefod-logo.png" alt="VEFOD Media & Diseño" class="footer__logo">
+                    <p class="footer__description">
+                        Soluciones profesionales de diseño, impresión y rotulación para hacer destacar tu negocio con la mejor calidad.
+                    </p>
+                </div>
+
+                <div class="footer__links">
+                    <div class="footer__column">
+                        <h3 class="footer__title">Enlaces Rápidos</h3>
+                        <ul class="footer__list">
+                            <li><a href="servicios.html" class="footer__link">Servicios</a></li>
+                            <li><a href="productos.html" class="footer__link">Productos</a></li>
+                            <li><a href="contacto.html" class="footer__link">Contacto</a></li>
+                            <li><a href="contacto.html" class="footer__link">Cotizar</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer__column">
+                        <h3 class="footer__title">Contáctanos</h3>
+                        <div class="footer__contact">
+                            <div class="footer__contact-item">
+                                <i class="ri-map-pin-line"></i>
+                                <span>Frente a la academia de bomberos, San Antonio de Desamparados, San José, Desamparados, 10301</span>
+                            </div>
+                            <div class="footer__contact-item">
+                                <i class="ri-phone-line"></i>
+                                <span>+506 6102 5947</span>
+                            </div>
+                            <div class="footer__contact-item">
+                                <i class="ri-mail-line"></i>
+                                <span>vefod7@gmail.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer__divider"></div>
+
+            <div class="footer__bottom">
+                <p class="footer__copyright">
+                    &copy; 2025 VEFOD Media & Diseño. Todos los derechos reservados.
+                </p>
+                <div class="footer__social">
+                    <a href="#" class="footer__social-link" aria-label="Facebook">
+                        <i class="ri-facebook-fill"></i>
+                    </a>
+                    <a href="#" class="footer__social-link" aria-label="Instagram">
+                        <i class="ri-instagram-line"></i>
+                    </a>
+                    <a href="#" class="footer__social-link" aria-label="WhatsApp">
+                        <i class="ri-whatsapp-line"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <div class="whatsapp-fab" id="whatsappFab" aria-label="Contactar por WhatsApp">
+        <i class="ri-whatsapp-line"></i>
+    </div>
+
+    <div class="whatsapp-menu" id="whatsappMenu" hidden>
+        <a href="https://wa.me/50661025947/?text=Hola%20VEFOD,%20necesito%20información." target="_blank" rel="noopener" class="whatsapp-menu__item">
+            <span>Atención General</span>
+            <small>+506 6102 5947</small>
+        </a>
+        <a href="https://wa.me/50664667443/?text=Hola,%20quisiera%20cotizar%20diseño." target="_blank" rel="noopener" class="whatsapp-menu__item">
+            <span></span>
+            <small>+506 64667443</small>
+        </a>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
