@@ -42,11 +42,13 @@ window.addEventListener('scroll', scrollHeader);
 
 /*=============== HERO VIDEO SCROLL ZOOM EFFECT ===============*/
 function heroVideoScrollZoom() {
-    // Desactivar efecto en móviles (menos de 768px)
+    // Desactivar efecto en móviles (menos de 768px) - sin zoom
     if (window.innerWidth <= 768) {
         const heroMain = document.querySelector('.hero__media-main');
         if (heroMain) {
+            // Mantener escala fija sin zoom
             heroMain.style.transform = 'translateX(-50%) scale(1)';
+            heroMain.style.transition = 'none';
         }
         return;
     }
