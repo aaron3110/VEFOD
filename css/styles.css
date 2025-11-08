@@ -263,6 +263,8 @@ button {
     flex-direction: column;
     color: var(--white);
     overflow: hidden;
+    transform: scale(1);
+    will-change: auto;
 }
 
 /*=============== HEADER & NAVIGATION ===============*/
@@ -447,6 +449,8 @@ button {
     height: 100%;
     background: var(--gradient-primary);
     z-index: var(--z-negative);
+    transform: scale(1);
+    will-change: auto;
 }
 
 .hero__container {
@@ -1008,11 +1012,23 @@ button {
 }
 
 @media screen and (max-width: 576px) {
+    /* Prevenir cualquier efecto de zoom en móviles */
+    .hero-header {
+        transform: scale(1) !important;
+        will-change: auto !important;
+    }
+    
+    .hero__bg {
+        transform: scale(1) !important;
+        will-change: auto !important;
+    }
+    
     .hero__media-gallery {
         opacity: 1;
         display: flex;
         justify-content: center;
         align-items: center;
+        transform: scale(1) !important;
     }
     
     .hero__media-main {
@@ -1026,6 +1042,8 @@ button {
         bottom: 4%;
         position: absolute;
         margin: 0 auto;
+        will-change: auto !important;
+        transition: none !important;
     }
     
     .hero__main-video,
@@ -1037,12 +1055,14 @@ button {
         object-fit: cover;
         border-radius: var(--radius-xl);
         display: block;
+        transform: scale(1) !important;
     }
     
     /* Ajustar contenido para compensar espacio del navegador */
     .hero__content {
         padding-top: var(--spacing-16);
         padding-bottom: var(--spacing-8);
+        transform: scale(1) !important;
     }
     
     /* Ocultar todas las imágenes laterales en móviles */

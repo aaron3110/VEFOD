@@ -46,9 +46,20 @@ function heroVideoScrollZoom() {
     if (window.innerWidth <= 768) {
         const heroMain = document.querySelector('.hero__media-main');
         if (heroMain) {
-            // Mantener escala fija sin zoom
+            // Mantener escala fija sin zoom - forzar sin transiciones
             heroMain.style.transform = 'translateX(-50%) scale(1)';
             heroMain.style.transition = 'none';
+            heroMain.style.willChange = 'auto';
+        }
+        // También asegurar que el fondo no haga zoom
+        const heroBg = document.querySelector('.hero__bg');
+        if (heroBg) {
+            heroBg.style.transform = 'scale(1)';
+            heroBg.style.transition = 'none';
+        }
+        const heroHeader = document.querySelector('.hero-header');
+        if (heroHeader) {
+            heroHeader.style.transform = 'scale(1)';
         }
         return;
     }
