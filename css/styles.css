@@ -1043,45 +1043,26 @@ button {
     .hero__media-item {
         display: none !important;
     }
+}
+
+/* Ocultar video e imagen en iPhone SE y pantallas pequeñas (375px o menos) */
+@media screen and (max-width: 375px) {
+    .hero__media-gallery {
+        display: none !important;
+    }
     
-    /* Ajustar contenido del hero en móviles */
+    .hero__media-main {
+        display: none !important;
+    }
+    
+    .hero__main-video,
+    .hero__main-img {
+        display: none !important;
+    }
+    
     .hero__content {
-        padding: var(--spacing-8) 0;
-        margin-top: var(--spacing-12);
-        z-index: 5;
-        text-align: center !important;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .hero__title {
-        font-size: var(--font-size-3xl);
-        margin-bottom: var(--spacing-2);
-        text-align: center !important;
-        width: 100%;
-    }
-    
-    .hero__subtitle {
-        font-size: var(--font-size-lg);
-        margin-bottom: var(--spacing-4);
-        text-align: center !important;
-        width: 100%;
-    }
-    
-    .hero__description {
-        font-size: var(--font-size-sm);
-        margin-bottom: var(--spacing-4);
-        text-align: center !important;
-        width: 100%;
-        max-width: 100%;
-    }
-    
-    .hero__buttons {
-        justify-content: center;
-        align-items: center;
-        width: 100%;
+        margin-bottom: var(--spacing-12);
+        padding-bottom: var(--spacing-16);
     }
 }
 
