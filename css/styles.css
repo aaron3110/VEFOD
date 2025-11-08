@@ -1045,7 +1045,19 @@ button {
     }
 }
 
-/* Ocultar video e imagen en iPhone SE y pantallas pequeñas (375px o menos) */
+/*=============== RESPONSIVE BREAKPOINTS ===============*/
+/* 
+ * Breakpoints:
+ * - 320px-375px: iPhone SE, Android pequeños (muy pequeños)
+ * - 376px-480px: iPhone 12/13/14 mini, Android pequeños
+ * - 481px-576px: iPhone estándar, Android medianos
+ * - 577px-768px: iPhone Plus, Android grandes, tablets pequeñas
+ * - 769px-1024px: iPad, tablets Android
+ * - 1025px-1280px: iPad Pro, laptops pequeñas
+ * - 1281px+: Desktop
+ */
+
+/* Pantallas muy pequeñas (iPhone SE, Android pequeños) - 320px a 375px */
 @media screen and (max-width: 375px) {
     .hero__media-gallery {
         display: none !important;
@@ -1063,6 +1075,154 @@ button {
     .hero__content {
         margin-bottom: var(--spacing-12);
         padding-bottom: var(--spacing-16);
+    }
+    
+    .hero__title {
+        font-size: var(--font-size-2xl);
+        line-height: 1.2;
+    }
+    
+    .hero__subtitle {
+        font-size: var(--font-size-base);
+    }
+    
+    .hero__description {
+        font-size: var(--font-size-sm);
+    }
+    
+    .hero__buttons .btn {
+        font-size: var(--font-size-sm);
+        padding: var(--spacing-3) var(--spacing-5);
+    }
+}
+
+/* Móviles pequeños (iPhone mini, Android pequeños) - 376px a 480px */
+@media screen and (min-width: 376px) and (max-width: 480px) {
+    .hero__media-main {
+        width: 90%;
+        max-height: 350px;
+        bottom: 8%;
+    }
+    
+    .hero__main-video,
+    .hero__main-img {
+        max-height: 350px;
+    }
+}
+
+/* Móviles medianos (iPhone estándar, Android medianos) - 481px a 576px */
+@media screen and (min-width: 481px) and (max-width: 576px) {
+    .hero__media-main {
+        width: 92%;
+        max-height: 380px;
+        bottom: 6%;
+    }
+    
+    .hero__main-video,
+    .hero__main-img {
+        max-height: 380px;
+    }
+}
+
+/* Móviles grandes y tablets pequeñas (iPhone Plus, Android grandes) - 577px a 768px */
+@media screen and (min-width: 577px) and (max-width: 768px) {
+    .hero__media-main {
+        width: 85%;
+        max-width: 500px;
+        max-height: 400px;
+        bottom: 8%;
+    }
+    
+    .hero__main-video,
+    .hero__main-img {
+        max-height: 400px;
+    }
+    
+    .hero__title {
+        font-size: var(--font-size-4xl);
+    }
+    
+    .hero__subtitle {
+        font-size: var(--font-size-xl);
+    }
+}
+
+/* Tablets (iPad, tablets Android) - 769px a 1024px */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .hero__media-main {
+        width: 75%;
+        max-width: 600px;
+        height: 380px;
+    }
+    
+    .hero__content {
+        padding: var(--spacing-20) 0;
+    }
+    
+    .hero__title {
+        font-size: var(--font-size-5xl);
+    }
+    
+    .hero__subtitle {
+        font-size: var(--font-size-2xl);
+    }
+    
+    .services__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .products__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Tablets grandes y laptops pequeñas (iPad Pro) - 1025px a 1280px */
+@media screen and (min-width: 1025px) and (max-width: 1280px) {
+    .hero__media-main {
+        width: 650px;
+        height: 420px;
+    }
+    
+    .container {
+        max-width: 1200px;
+    }
+}
+
+/* Orientación landscape en móviles */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+    .hero-header {
+        min-height: 100vh;
+    }
+    
+    .hero__content {
+        padding: var(--spacing-8) 0;
+        margin-top: var(--spacing-8);
+    }
+    
+    .hero__media-main {
+        max-height: 250px;
+        bottom: 5%;
+    }
+    
+    .hero__main-video,
+    .hero__main-img {
+        max-height: 250px;
+    }
+    
+    .section {
+        padding: var(--spacing-12) 0;
+        min-height: auto;
+    }
+}
+
+/* Ajustes para tablets en landscape */
+@media screen and (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+    .hero__media-main {
+        height: 320px;
+    }
+    
+    .hero__content {
+        padding: var(--spacing-12) 0;
     }
 }
 
@@ -3009,12 +3169,18 @@ button {
     }
 }
 
+/* Ajustes adicionales para pantallas muy pequeñas */
 @media screen and (max-width: 400px) {
     :root {
         --font-size-7xl: 2.5rem;
         --font-size-6xl: 2.25rem;
         --font-size-5xl: 1.75rem;
         --container-padding: 1rem;
+        --spacing-24: 3rem;
+        --spacing-20: 2.5rem;
+        --spacing-16: 2rem;
+        --spacing-12: 1.5rem;
+        --spacing-8: 1.25rem;
     }
     
     .hero__title {
