@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto - VEFOD Media & Diseño</title>
     <meta name="description" content="Contacta con VEFOD Media & Diseño para cotizaciones, consultas y proyectos de impresión, rotulación y diseño gráfico.">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/vefod_ico.jpg">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/vefod_ico.jpg">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/vefod_ico.jpg">
     <link rel="stylesheet" href="css/styles.css">
     <!-- Remixicon para iconos -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
@@ -82,8 +87,8 @@
                             </div>
                             <div class="contact__details">
                                 <h3 class="contact__title">Teléfono</h3>
-                                <p class="contact__text">+506 2222-2222</p>
-                                <p class="contact__text">+506 3333-3333</p>
+                                <p class="contact__text">+506 6102-5947</p>
+                                <p class="contact__text">+506 6466-7443</p>
                             </div>
                         </div>
 
@@ -104,7 +109,7 @@
                             </div>
                             <div class="contact__details">
                                 <h3 class="contact__title">WhatsApp</h3>
-                                <p class="contact__text">+506 7000-0000</p>
+                                <p class="contact__text">+506 6102-5947</p>
                                 <p class="contact__text">Atención inmediata</p>
                             </div>
                         </div>
@@ -121,7 +126,9 @@
                         </div>
                     </div>
 
-                    <form class="contact__form" id="contactForm">
+                    <div class="contact__form-wrapper">
+                        <h3 class="contact__form-title">Envíanos un Mensaje</h3>
+                        <form class="contact__form" id="contactForm">
                         <div class="form__group">
                             <input type="text" id="name" name="name" class="form__input" placeholder="Nombre completo" required>
                         </div>
@@ -144,11 +151,40 @@
                         <div class="form__group">
                             <textarea id="message" name="message" class="form__input form__textarea" placeholder="Cuéntanos sobre tu proyecto" rows="5" required></textarea>
                         </div>
+                        
+                        <div class="form__group">
+                            <label for="reference" class="form__label">
+                                <i class="ri-image-line"></i>
+                                Referencia de lo que desea (opcional)
+                            </label>
+                            <input type="file" id="reference" name="reference" class="form__file" accept="image/*,.pdf,.doc,.docx">
+                            <small class="form__help">Formatos: JPG, PNG, PDF, DOC, DOCX</small>
+                        </div>
+
+                        <div class="form__group">
+                            <label for="logo" class="form__label">
+                                <i class="ri-file-image-line"></i>
+                                Logo (si tiene) - Opcional
+                            </label>
+                            <input type="file" id="logo" name="logo" class="form__file" accept="image/*,.pdf,.ai,.eps,.svg">
+                            <small class="form__help">Formatos: JPG, PNG, PDF, AI, EPS, SVG</small>
+                        </div>
+
+                        <div class="form__group">
+                            <label for="artwork" class="form__label">
+                                <i class="ri-file-edit-line"></i>
+                                Arte ya listo para imprimir (si tiene) - Opcional
+                            </label>
+                            <input type="file" id="artwork" name="artwork" class="form__file" accept="image/*,.pdf,.ai,.eps,.svg,.psd">
+                            <small class="form__help">Formatos: JPG, PNG, PDF, AI, EPS, SVG, PSD</small>
+                        </div>
+
                         <button type="submit" class="btn btn--primary btn--full">
                             <span>Enviar Mensaje</span>
                             <i class="ri-send-plane-line"></i>
                         </button>
                     </form>
+                    </div>
                 </div>
             </div>
         </section>
@@ -160,13 +196,27 @@
                     <h2 class="section__title">Nuestra Ubicación</h2>
                     <p class="section__subtitle">Visítanos en nuestras instalaciones</p>
                 </div>
-                
+                <!-- 
+                    INSTRUCCIONES PARA OBTENER EL CÓDIGO REAL DE GOOGLE MAPS:
+                    1. Ve a https://www.google.com/maps
+                    2. Busca tu ubicación exacta: "Frente a la academia de bomberos, San Antonio de Desamparados"
+                    3. Haz clic en el botón "Compartir" 
+                    4. Selecciona la pestaña "Insertar un mapa"
+                    5. Copia solo la URL que está en el atributo src del iframe
+                    6. Reemplaza la URL en el src de abajo con la que copiaste
+                -->
                 <div class="map__container">
-                    <div class="map__placeholder">
-                        <i class="ri-map-pin-line"></i>
-                        <p>Mapa interactivo de Google Maps</p>
-                        <small>San José, Costa Rica</small>
-                    </div>
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62887.14758358895!2d-84.08451569675023!3d9.896701281526495!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0e3798a468233%3A0x4bdc61453148bd44!2sVefod!5e0!3m2!1sen!2scr!4v1762591673514!5m2!1sen!2scr" 
+                        width="100%" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        class="map__iframe"
+                        title="Ubicación de VEFOD Media & Diseño - Frente a la academia de bomberos, San Antonio de Desamparados">
+                    </iframe>
                 </div>
             </div>
         </section>

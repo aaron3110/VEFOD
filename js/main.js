@@ -12,15 +12,126 @@ const contactForm = document.getElementById('contactForm');
 const currentYearElement = document.getElementById('current-year');
 
 /*=============== HEADER SCROLL EFFECT ===============*/
+let scrollTimeout;
+let isScrolling = false;
+
 function scrollHeader() {
     if (window.scrollY >= 50) {
         header.classList.add('scrolled');
     } else {
         header.classList.remove('scrolled');
     }
+    
+    // Activar animación solo cuando se está scrollando
+    if (!isScrolling) {
+        isScrolling = true;
+        header.classList.add('scrolling');
+    }
+    
+    // Limpiar timeout anterior
+    clearTimeout(scrollTimeout);
+    
+    // Quitar clase scrolling después de que termine el scroll
+    scrollTimeout = setTimeout(() => {
+        isScrolling = false;
+        header.classList.remove('scrolling');
+    }, 150);
 }
 
 window.addEventListener('scroll', scrollHeader);
+
+/*=============== HERO VIDEO SCROLL ZOOM EFFECT ===============*/
+function heroVideoScrollZoom() {
+    // Desactivar efecto en móviles (menos de 768px)
+    if (window.innerWidth <= 768) {
+        const heroMain = document.querySelector('.hero__media-main');
+        if (heroMain) {
+            heroMain.style.transform = 'translateX(-50%) scale(1)';
+        }
+        return;
+    }
+    
+    const heroMain = document.querySelector('.hero__media-main');
+    if (!heroMain) return;
+    
+    const heroSection = document.querySelector('.hero-header');
+    if (!heroSection) return;
+    
+    const heroSectionHeight = heroSection.offsetHeight;
+    const scrollPosition = window.scrollY;
+    
+    // Calculate scroll progress (0 to 1)
+    const scrollProgress = Math.min(scrollPosition / (heroSectionHeight * 0.5), 1);
+    
+    // Calculate scale (0.75 to 1.5) - starts smaller, grows larger
+    const minScale = 0.75;
+    const maxScale = 1.5;
+    const scale = minScale + (scrollProgress * (maxScale - minScale));
+    
+    // Apply transform - maintain horizontal center and bottom position
+    heroMain.style.transform = `translateX(-50%) scale(${scale})`;
+    
+    // Get video dimensions (base size)
+    const videoWidth = 650; // Base width
+    const videoHeight = 420; // Base height
+    const baseScaledWidth = videoWidth * minScale;
+    const baseScaledHeight = videoHeight * minScale;
+    const scaledWidth = videoWidth * scale;
+    const scaledHeight = videoHeight * scale;
+    
+    // Calculate offset for images (they need to move away as video grows from base scale)
+    const offsetX = (scaledWidth - baseScaledWidth) / 2;
+    const offsetY = (scaledHeight - baseScaledHeight) / 2;
+    
+    // Update image positions based on scroll - close to video corners
+    const baseBottom = 5; // Base bottom percentage
+    const baseOffset = 5; // Base offset in pixels
+    const sideOffset = 10; // Side offset in pixels
+    
+    // Top Left - Fixed position relative to viewport
+    const topLeft = document.querySelector('.hero__media-item--top-left');
+    if (topLeft) {
+        const imageWidth = 260;
+        topLeft.style.bottom = `calc(${baseBottom}% + ${baseScaledHeight + baseOffset}px + ${offsetY}px)`;
+        topLeft.style.left = `calc(40% - ${imageWidth/2}px)`;
+        topLeft.style.right = 'auto';
+    }
+    
+    // Top Right - Fixed position relative to viewport
+    const topRight = document.querySelector('.hero__media-item--top-right');
+    if (topRight) {
+        const imageWidth = 220;
+        const adjustedHeight = baseScaledHeight - 115; // Move down by reducing the offset
+        topRight.style.bottom = `calc(${baseBottom}% + ${adjustedHeight + baseOffset}px + ${offsetY}px)`;
+        topRight.style.right = `calc(31% - ${imageWidth/2}px)`;
+        topRight.style.left = 'auto';
+    }
+    
+    // Bottom Left - Fixed position relative to viewport
+    const bottomLeft = document.querySelector('.hero__media-item--bottom-left');
+    if (bottomLeft) {
+        const imageWidth = 240;
+        bottomLeft.style.bottom = `calc(${baseBottom}% + ${baseOffset}px - ${offsetY}px)`;
+        bottomLeft.style.left = `calc(30% - ${imageWidth/2}px)`;
+        bottomLeft.style.right = 'auto';
+    }
+    
+    // Bottom Right - Fixed position relative to viewport
+    const bottomRight = document.querySelector('.hero__media-item--bottom-right');
+    if (bottomRight) {
+        const imageWidth = 350;
+        const adjustedHeight = 300; // Move up by using a fixed offset
+        bottomRight.style.bottom = `calc(${baseBottom}% + ${adjustedHeight}px - ${offsetY}px)`;
+        bottomRight.style.left = `calc(28% - ${imageWidth/2}px)`;
+        bottomRight.style.right = 'auto';
+    }
+}
+
+window.addEventListener('scroll', heroVideoScrollZoom);
+window.addEventListener('resize', heroVideoScrollZoom);
+
+// Initialize positions on load
+document.addEventListener('DOMContentLoaded', heroVideoScrollZoom);
 
 /*=============== MOBILE NAVIGATION ===============*/
 function toggleMenu() {

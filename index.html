@@ -5,13 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VEFOD Media & Diseño</title>
     <meta name="description" content="Conoce VEFOD Media & Diseño, empresa especializada en impresión, rotulación y estructuras publicitarias en Costa Rica.">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/vefod_ico.jpg">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/vefod_ico.jpg">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/vefod_ico.jpg">
     <link rel="stylesheet" href="css/styles.css">
     <!-- Remixicon para iconos -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Asegurar que el texto sea visible mientras cargan las fuentes */
+        body, .hero__title, .hero__subtitle, .hero__description {
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+    </style>
 </head>
 <body>
     <!-- Integrated Header & Hero Section -->
@@ -63,6 +77,32 @@
                         <i class="ri-customer-service-line"></i>
                     </a>
                 </div>
+            </div>
+        </div>
+
+        <!-- Hero Media Gallery - Freepik Style -->
+        <div class="hero__media-gallery">
+            <!-- Main Central Video/Image -->
+            <div class="hero__media-main">
+                <video class="hero__main-video" autoplay muted loop playsinline webkit-playsinline>
+                    <source src="img/video_principal.mp4" type="video/mp4">
+                    Tu navegador no soporta videos HTML5.
+                </video>
+                <!-- Fallback image if video doesn't load -->
+                <img src="img/img_principal.png" alt="VEFOD - Servicios Profesionales" class="hero__main-img">
+            </div>
+            
+            
+            <div class="hero__media-item hero__media-item--top-right">
+                <img src="img/imagen_roler_up.png" alt="VEFOD - Recibos" class="hero__media-img">
+            </div>
+            
+            <div class="hero__media-item hero__media-item--bottom-left">
+                <img src="img/imagen_recibo.png" alt="VEFOD - Roller Up" class="hero__media-img">
+            </div>
+            
+            <div class="hero__media-item hero__media-item--bottom-right">
+                <img src="img/tarjeta_presentación.png" alt="VEFOD - Productos" class="hero__media-img">
             </div>
         </div>
     </section>
@@ -118,28 +158,19 @@
                 <div class="services-preview__grid">
                     <div class="service-preview-card">
                         <div class="service-preview-card__icon">
-                            <i class="ri-printer-line"></i>
+                            <i class="ri-route-line"></i>
                         </div>
-                        <h3 class="service-preview-card__title">Impresión Gran Formato</h3>
-                        <p class="service-preview-card__description">Lonas, viniles, microperforado y más con la mejor calidad.</p>
+                        <h3 class="service-preview-card__title">Señalética y rotulación especial</h3>
+                        <p class="service-preview-card__description">PVC, letras corpóreas, roller up y gafetes en PVC.</p>
                         <a href="servicios.html" class="service-preview-card__link">Ver más <i class="ri-arrow-right-line"></i></a>
                     </div>
 
                     <div class="service-preview-card">
                         <div class="service-preview-card__icon">
-                            <i class="ri-layout-4-line"></i>
+                            <i class="ri-file-list-2-line"></i>
                         </div>
-                        <h3 class="service-preview-card__title">Estructuras Publicitarias</h3>
-                        <p class="service-preview-card__description">Roller up, plumas, stands y estructuras personalizadas.</p>
-                        <a href="servicios.html" class="service-preview-card__link">Ver más <i class="ri-arrow-right-line"></i></a>
-                    </div>
-
-                    <div class="service-preview-card">
-                        <div class="service-preview-card__icon">
-                            <i class="ri-palette-line"></i>
-                        </div>
-                        <h3 class="service-preview-card__title">Diseño Gráfico</h3>
-                        <p class="service-preview-card__description">Identidad corporativa, branding y diseño creativo.</p>
+                        <h3 class="service-preview-card__title">Materiales impresos y de oficina</h3>
+                        <p class="service-preview-card__description">Stikers, recibos, talonarios, volantes, tarjetas y sellos.</p>
                         <a href="servicios.html" class="service-preview-card__link">Ver más <i class="ri-arrow-right-line"></i></a>
                     </div>
                 </div>
@@ -166,32 +197,40 @@
                         <div class="why-choose__icon">
                             <i class="ri-award-line"></i>
                         </div>
-                        <h3 class="why-choose__title">Calidad Garantizada</h3>
-                        <p class="why-choose__description">Utilizamos materiales de calidad y tecnología  para garantizar resultados excepcionales.</p>
+                        <div class="why-choose__content">
+                            <h3 class="why-choose__title">Calidad Garantizada</h3>
+                            <p class="why-choose__description">Utilizamos materiales de calidad y tecnología  para garantizar resultados excepcionales.</p>
+                        </div>
                     </div>
 
                     <div class="why-choose__item">
                         <div class="why-choose__icon">
                             <i class="ri-time-line"></i>
                         </div>
-                        <h3 class="why-choose__title">Entrega Rápida</h3>
-                        <p class="why-choose__description">Cumplimos con los tiempos de entrega acordados sin comprometer la calidad del trabajo final.</p>
+                        <div class="why-choose__content">
+                            <h3 class="why-choose__title">Entrega Rápida</h3>
+                            <p class="why-choose__description">Cumplimos con los tiempos de entrega acordados sin comprometer la calidad del trabajo final.</p>
+                        </div>
                     </div>
 
                     <div class="why-choose__item">
                         <div class="why-choose__icon">
                             <i class="ri-customer-service-2-line"></i>
                         </div>
-                        <h3 class="why-choose__title">Atención Personalizada</h3>
-                        <p class="why-choose__description">Cada proyecto es único y recibe la atención personalizada que merece para alcanzar los mejores resultados.</p>
+                        <div class="why-choose__content">
+                            <h3 class="why-choose__title">Atención Personalizada</h3>
+                            <p class="why-choose__description">Cada proyecto es único y recibe la atención personalizada que merece para alcanzar los mejores resultados.</p>
+                        </div>
                     </div>
 
                     <div class="why-choose__item">
                         <div class="why-choose__icon">
                             <i class="ri-price-tag-3-line"></i>
                         </div>
-                        <h3 class="why-choose__title">Precios Competitivos</h3>
-                        <p class="why-choose__description">Ofrecemos precios justos y competitivos sin sacrificar la calidad de nuestros productos y servicios.</p>
+                        <div class="why-choose__content">
+                            <h3 class="why-choose__title">Precios Competitivos</h3>
+                            <p class="why-choose__description">Ofrecemos precios justos y competitivos sin sacrificar la calidad de nuestros productos y servicios.</p>
+                        </div>
                     </div>
                 </div>
             </div>
