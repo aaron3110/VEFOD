@@ -339,17 +339,37 @@
 
     <!-- WhatsApp Floating Button -->
     <div class="whatsapp-fab" id="whatsappFab" aria-label="Contactar por WhatsApp">
-        <i class="ri-whatsapp-line"></i>
+        <div class="whatsapp-fab__icon">
+            <i class="ri-whatsapp-line"></i>
+        </div>
+        <span class="whatsapp-fab__text">Contáctanos</span>
+        <div class="whatsapp-fab__pulse"></div>
     </div>
 
     <div class="whatsapp-menu" id="whatsappMenu" hidden>
+        <div class="whatsapp-menu__header">
+            <i class="ri-whatsapp-line"></i>
+            <span>Contáctanos por WhatsApp</span>
+        </div>
         <a href="https://wa.me/50661025947/?text=Hola%20VEFOD,%20necesito%20información." target="_blank" rel="noopener" class="whatsapp-menu__item">
-            <span>Atención General</span>
-            <small>+506 6102 5947</small>
+            <div class="whatsapp-menu__item-icon">
+                <i class="ri-customer-service-line"></i>
+            </div>
+            <div class="whatsapp-menu__item-content">
+                <span class="whatsapp-menu__item-title">Atención General</span>
+                <small class="whatsapp-menu__item-number">+506 6102 5947</small>
+            </div>
+            <i class="ri-arrow-right-line whatsapp-menu__item-arrow"></i>
         </a>
         <a href="https://wa.me/50664667443/?text=Hola,%20quisiera%20cotizar%20diseño." target="_blank" rel="noopener" class="whatsapp-menu__item">
-            <span></span>
-            <small>+506 64667443</small>
+            <div class="whatsapp-menu__item-icon">
+                <i class="ri-palette-line"></i>
+            </div>
+            <div class="whatsapp-menu__item-content">
+                <span class="whatsapp-menu__item-title">Cotización Diseño</span>
+                <small class="whatsapp-menu__item-number">+506 6466 7443</small>
+            </div>
+            <i class="ri-arrow-right-line whatsapp-menu__item-arrow"></i>
         </a>
     </div>
 
