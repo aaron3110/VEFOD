@@ -11,6 +11,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="img/vefod_ico.jpg">
     <link rel="apple-touch-icon" sizes="180x180" href="img/vefod_ico.jpg">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
     <!-- Remixicon para iconos -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <!-- Google Fonts -->
@@ -29,16 +30,36 @@
 
                 <div class="header__menu-section">
                     <nav class="nav" id="nav">
+                        <div class="nav__drawer-header">
+                            <img src="img/vefod-logo.png" alt="VEFOD" class="nav__drawer-logo">
+                            <button class="nav__close" id="nav-close" aria-label="Cerrar menú">
+                                <i class="ri-close-line"></i>
+                            </button>
+                        </div>
                         <ul class="nav__list">
-                            <li class="nav__item"><a href="index.html" class="nav__link">Inicio</a></li>
-                            <li class="nav__item"><a href="servicios.html" class="nav__link">Servicios</a></li>
-                            <li class="nav__item"><a href="productos.html" class="nav__link">Productos</a></li>
-                            <li class="nav__item"><a href="contacto.html" class="nav__link active">Contacto</a></li>
+                            <li class="nav__item"><a href="index.html" class="nav__link"><i class="ri-home-line nav__link-icon"></i>Inicio</a></li>
+                            <li class="nav__item"><a href="servicios.html" class="nav__link"><i class="ri-brush-2-line nav__link-icon"></i>Servicios</a></li>
+                            <li class="nav__item"><a href="productos.html" class="nav__link"><i class="ri-price-tag-3-line nav__link-icon"></i>Productos</a></li>
+                            <li class="nav__item"><a href="contacto.html" class="nav__link active"><i class="ri-phone-line nav__link-icon"></i>Contacto</a></li>
                         </ul>
+                        <div class="nav__drawer-footer">
+                            <a href="https://wa.me/50661025947/?text=Hola%20VEFOD,%20quiero%20cotizar." target="_blank" rel="noopener" class="nav__drawer-cta">
+                                <i class="ri-whatsapp-line"></i>
+                                <span>Cotizar por WhatsApp</span>
+                            </a>
+                            <p class="nav__drawer-tagline">VEFOD Media &amp; Diseño</p>
+                        </div>
                     </nav>
 
                     <div class="header__actions">
-                        <a href="contacto.html" class="btn btn--primary">Cotizar</a>
+                        <a href="https://wa.me/50661025947/?text=Hola%20VEFOD,%20quiero%20cotizar." target="_blank" rel="noopener" class="btn btn--primary">Cotizar por WhatsApp</a>
+                        <div class="whatsapp-fab whatsapp-fab--header" id="whatsappFab" aria-label="Contáctanos por WhatsApp" role="button" tabindex="0">
+                            <div class="whatsapp-fab__icon">
+                                <i class="ri-whatsapp-line"></i>
+                            </div>
+                            <span class="whatsapp-fab__text">Contáctanos</span>
+                            <div class="whatsapp-fab__pulse"></div>
+                        </div>
                         <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú">
                             <i class="ri-menu-line"></i>
                         </button>
@@ -337,15 +358,6 @@
         </div>
     </footer>
 
-    <!-- WhatsApp Floating Button -->
-    <div class="whatsapp-fab" id="whatsappFab" aria-label="Contactar por WhatsApp">
-        <div class="whatsapp-fab__icon">
-            <i class="ri-whatsapp-line"></i>
-        </div>
-        <span class="whatsapp-fab__text">Contáctanos</span>
-        <div class="whatsapp-fab__pulse"></div>
-    </div>
-
     <div class="whatsapp-menu" id="whatsappMenu" hidden>
         <div class="whatsapp-menu__header">
             <i class="ri-whatsapp-line"></i>
@@ -372,6 +384,8 @@
             <i class="ri-arrow-right-line whatsapp-menu__item-arrow"></i>
         </a>
     </div>
+
+    <div class="nav-overlay" id="navOverlay"></div>
 
     <script src="js/main.js"></script>
 </body>

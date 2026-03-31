@@ -1,0 +1,1532 @@
+/*===============================================================
+  RESPONSIVE.CSS — VEFOD Media & Diseño
+  Mejoras de responsividad y diseño profesional
+  Guiado por sitios de impresión y rotulación profesional
+================================================================*/
+
+/*--------------------------------------------------------------
+  1. BTN--LARGE — Clase faltante utilizada en el HTML
+--------------------------------------------------------------*/
+.btn--large {
+    padding: var(--spacing-4) var(--spacing-10);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-bold);
+}
+
+/*--------------------------------------------------------------
+  2. HEADER — Fondo sólido en páginas sin hero
+     (servicios, productos, contacto)
+     Usamos clase .page-header en esas páginas para activar
+--------------------------------------------------------------*/
+/* Clase para páginas sin hero: aplicar en servicios, productos, contacto */
+.page-header {
+    background-color: rgba(0, 26, 44, 0.97) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 10000 !important;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+}
+
+.page-header .nav__link {
+    color: var(--white) !important;
+}
+
+.page-header .nav__link:hover,
+.page-header .nav__link.active {
+    color: var(--accent-color) !important;
+}
+
+.page-header .header__logo-img {
+    filter: brightness(1.2) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+/*--------------------------------------------------------------
+  3. PAGE-HERO — Reducir altura excesiva en móviles
+     (las páginas internas no necesitan 100vh en móvil)
+--------------------------------------------------------------*/
+@media screen and (max-width: 1024px) {
+    .page-hero {
+        min-height: 120vh;
+        padding: 0 var(--spacing-6);
+    }
+
+    .page-hero__content {
+        padding: var(--spacing-20) var(--spacing-6);
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .page-hero {
+        min-height: 100svh;
+        padding: 0 var(--spacing-4);
+    }
+
+    .page-hero__title {
+        font-size: var(--font-size-4xl);
+        margin-bottom: var(--spacing-3);
+    }
+
+    .page-hero__subtitle {
+        font-size: var(--font-size-base);
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .page-hero {
+        min-height: 100svh;
+        padding: 0 var(--spacing-4);
+    }
+
+    .page-hero__title {
+        font-size: var(--font-size-3xl);
+    }
+
+    .page-hero__subtitle {
+        font-size: var(--font-size-sm);
+    }
+}
+
+/*--------------------------------------------------------------
+  4. HERO SECTION (INDEX) — Mejoras para móvil
+--------------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+    .hero-header {
+        min-height: 100svh; /* small viewport height — desactiva barra browser */
+    }
+
+    .hero__container {
+        padding-top: var(--spacing-6);
+        padding-left: var(--spacing-4);
+        padding-right: var(--spacing-4);
+        padding-bottom: var(--spacing-6);
+        align-items: flex-start;
+    }
+
+    .hero__content {
+        padding: 0;
+        margin-top: var(--spacing-8);
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero__title {
+        font-size: clamp(1.6rem, 8vw, 2.4rem) !important;
+        letter-spacing: 1px !important;
+        margin-bottom: var(--spacing-4) !important;
+    }
+
+    .hero__description {
+        font-size: clamp(0.8rem, 3.5vw, 1rem) !important;
+        margin-bottom: var(--spacing-6) !important;
+        padding: 0 !important;
+        line-height: 1.5 !important;
+    }
+
+    .hero__buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-3);
+        margin-top: var(--spacing-6);
+    }
+
+    .hero__buttons .btn {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+        font-size: var(--font-size-sm) !important;
+        padding: var(--spacing-3) var(--spacing-6) !important;
+    }
+
+    /* Video de fondo en móvil */
+    .hero__media-main {
+        width: 88%;
+        max-width: 460px;
+        height: 220px;
+        bottom: 16%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hero__container {
+        padding-top: var(--spacing-8);
+    }
+
+    .hero__title {
+        font-size: clamp(1.4rem, 7.5vw, 2rem) !important;
+    }
+
+    .hero__media-main {
+        width: 90%;
+        height: 180px;
+        bottom: 16%;
+    }
+}
+
+/*--------------------------------------------------------------
+  5. NAVIGATION — Drawer lateral profesional en móvil
+--------------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+
+    /* Bloqueo de scroll cuando el drawer está abierto */
+    body.nav-open {
+        overflow: hidden;
+    }
+
+    /* Elevar el header sobre el overlay cuando el menú está abierto.
+       Sin esto, la stacking context del header (z-index 1000) queda por
+       debajo del overlay (z-index 9997) y los links del nav no reciben clicks. */
+    body.nav-open #header {
+        z-index: 99999 !important;
+    }
+
+    /* En index, el nav vive dentro de .hero-header (que crea su propio
+       stacking context). Al abrir el menú, elevamos ese contexto para que
+       el drawer no quede "cortado" por secciones posteriores al hacer scroll. */
+    body.nav-open .hero-header {
+        position: relative;
+        z-index: 99998;
+    }
+
+    /* Overlay de fondo */
+    .nav-overlay {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.55);
+        z-index: 900;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.35s ease, visibility 0.35s ease;
+    }
+
+    body.nav-open .nav-overlay {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Botón hamburguesa */
+    .nav-toggle {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        border-radius: var(--radius-lg);
+        background: rgba(255, 255, 255, 0.15);
+        color: var(--white) !important;
+        font-size: 1.4rem;
+        transition: background 0.2s ease;
+    }
+
+    .nav-toggle:hover {
+        background: rgba(255, 255, 255, 0.25);
+    }
+
+    /* Ocultar botón de cotización del header en móvil */
+    .header__actions .btn--primary {
+        display: none !important;
+    }
+
+    /* ---- DRAWER PANEL ---- */
+    .nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: min(82vw, 310px);
+        height: 100dvh;
+        background: linear-gradient(160deg, #0e2d48 0%, #0a2038 100%);
+        z-index: 10001;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        transition: right 0.38s cubic-bezier(0.23, 1, 0.32, 1);
+        box-shadow: -8px 0 40px rgba(0, 0, 0, 0.4);
+        overflow: hidden;
+    }
+
+    .nav.show {
+        right: 0;
+    }
+
+    /* ---- CABECERA DEL DRAWER ---- */
+    .nav__drawer-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 20px;
+        background: rgba(0, 0, 0, 0.25);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        flex-shrink: 0;
+    }
+
+    .nav__drawer-logo {
+        height: 36px;
+        width: auto;
+    }
+
+    .nav__close {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        color: var(--white);
+        font-size: 1.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background 0.2s ease, transform 0.25s ease;
+        flex-shrink: 0;
+    }
+
+    .nav__close:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: rotate(90deg);
+    }
+
+    /* ---- LISTA DE LINKS ---- */
+    .nav__list {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px !important;
+        padding: 16px 12px;
+        flex: 1;
+        overflow-y: auto;
+    }
+
+    .nav__item {
+        width: 100%;
+    }
+
+    .nav__link {
+        display: flex !important;
+        align-items: center;
+        gap: 14px;
+        padding: 14px 16px !important;
+        font-size: 0.95rem !important;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.9) !important;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        border-radius: 10px;
+        border-bottom: none !important;
+        width: 100%;
+        transition: background 0.2s ease, color 0.2s ease, padding-left 0.2s ease;
+    }
+
+    .nav__link::after {
+        display: none !important;
+    }
+
+    .nav__link-icon {
+        display: inline-flex;
+        font-size: 1.2rem;
+        color: rgba(255, 255, 255, 0.4);
+        flex-shrink: 0;
+        transition: color 0.2s ease;
+    }
+
+    .nav__link:hover {
+        background: rgba(255, 255, 255, 0.07) !important;
+        color: var(--white) !important;
+        padding-left: 20px !important;
+    }
+
+    .nav__link:hover .nav__link-icon {
+        color: var(--accent-color);
+    }
+
+    .nav__link.active {
+        background: rgba(0, 160, 227, 0.15) !important;
+        color: var(--white) !important;
+    }
+
+    .nav__link.active .nav__link-icon {
+        color: var(--accent-color);
+    }
+
+    .nav__link:active {
+        background: rgba(255, 255, 255, 0.12) !important;
+    }
+
+    /* ---- PIE DEL DRAWER ---- */
+    .nav__drawer-footer {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        padding: 16px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        flex-shrink: 0;
+    }
+
+    .nav__drawer-cta {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 14px 16px;
+        background: linear-gradient(135deg, #25d366 0%, #1ebe57 100%);
+        color: #fff;
+        border-radius: 12px;
+        font-weight: 700;
+        font-size: 0.88rem;
+        text-decoration: none;
+        letter-spacing: 0.3px;
+        transition: filter 0.2s ease, transform 0.15s ease;
+    }
+
+    .nav__drawer-cta:hover {
+        filter: brightness(1.1);
+        transform: scale(1.02);
+    }
+
+    .nav__drawer-cta i {
+        font-size: 1.2rem;
+    }
+
+    .nav__drawer-tagline {
+        text-align: center;
+        font-size: 0.68rem;
+        color: rgba(255, 255, 255, 0.3);
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+        margin: 0;
+    }
+
+}
+
+@media screen and (max-width: 380px) {
+    .header__inner {
+        padding: 0 var(--spacing-3) !important;
+    }
+}
+
+/*--------------------------------------------------------------
+  6. ABOUT SECTION — Mejoras móvil
+--------------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+    .about__content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-8);
+    }
+
+    .about__text {
+        padding-right: 0;
+        order: 1;
+        text-align: center;
+    }
+
+    .about__text .section__title {
+        text-align: center;
+    }
+
+    .about__description {
+        text-align: center !important;
+        font-size: var(--font-size-base) !important;
+    }
+
+    .about__description:first-of-type {
+        font-size: var(--font-size-lg) !important;
+    }
+
+    .about__image {
+        order: 2;
+    }
+
+    .about__img {
+        height: 280px;
+    }
+
+    .about__stats {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-3);
+        margin-top: var(--spacing-6);
+    }
+
+    .stat {
+        padding: var(--spacing-4) var(--spacing-2);
+        min-height: auto;
+    }
+
+    .stat__number {
+        font-size: var(--font-size-2xl);
+        margin-bottom: var(--spacing-1);
+    }
+
+    .stat__label {
+        font-size: 0.7rem;
+        letter-spacing: 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .about__stats {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-4);
+    }
+
+    .stat {
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: var(--spacing-4);
+        text-align: left;
+        padding: var(--spacing-4) var(--spacing-6);
+    }
+
+    .stat__number {
+        font-size: var(--font-size-3xl);
+        min-width: 60px;
+        text-align: center;
+    }
+
+    .stat__label {
+        font-size: var(--font-size-sm);
+        text-align: left;
+    }
+}
+
+/*--------------------------------------------------------------
+  7. SERVICES PREVIEW GRID — Colapsar en móvil
+--------------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+    .services-preview__grid {
+        grid-template-columns: 1fr !important;
+        gap: var(--spacing-6);
+        margin-bottom: var(--spacing-8);
+    }
+
+    .service-preview-card:first-child,
+    .service-preview-card:last-child {
+        grid-column: 1 !important;
+    }
+
+    .service-preview-card {
+        padding: var(--spacing-6);
+    }
+
+    .services-preview__cta {
+        margin-top: var(--spacing-4);
+    }
+
+    .services-preview__cta .btn {
+        width: 100%;
+        max-width: 320px;
+        justify-content: center;
+    }
+}
+
+/*--------------------------------------------------------------
+  8. WHY CHOOSE US — Colapsar a 1 columna en móvil
+--------------------------------------------------------------*/
+@media screen and (max-width: 576px) {
+    .why-choose__grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-6);
+    }
+
+    .why-choose__item {
+        padding: var(--spacing-5) var(--spacing-4);
+    }
+}
+
+/*--------------------------------------------------------------
+  9. SERVICES PAGE — Grid de tarjetas en móvil
+--------------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+    .services__grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-6);
+    }
+
+    .service-card {
+        padding: var(--spacing-6);
+    }
+
+    .service-card__icon {
+        width: 70px;
+        height: 70px;
+        font-size: var(--font-size-2xl);
+    }
+}
+
+/*--------------------------------------------------------------
+  10. PROCESS STEPS — Colapsar en móvil
+--------------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+    .process__steps {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-6);
+    }
+
+    .process__step:not(:last-child)::after {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .process__steps {
+        grid-template-columns: 1fr;
+    }
+
+    .process__step {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--spacing-4);
+        text-align: left;
+    }
+
+    .process__number {
+        margin: 0;
+        flex-shrink: 0;
+    }
+
+    .process__content {
+        text-align: left;
+    }
+}
+
+/*--------------------------------------------------------------
+  11. PRODUCTS PAGE — Listas de productos en móvil
+--------------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+    .products__lists {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-6);
+        margin-top: var(--spacing-8);
+    }
+
+    .product-list {
+        padding: var(--spacing-6);
+    }
+
+    .product-list__title {
+        font-size: var(--font-size-xl);
+    }
+
+    .icon-list li {
+        padding: var(--spacing-2) 0;
+    }
+
+    .icon-list li i {
+        flex-shrink: 0;
+    }
+}
+
+/*--------------------------------------------------------------
+  12. CONTACT PAGE — Formulario y datos en móvil
+--------------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+    .contact__content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-8);
+    }
+
+    .contact__info {
+        order: 1;
+    }
+
+    .contact__form-wrapper {
+        order: 2;
+        padding: var(--spacing-6);
+    }
+
+    .contact__item {
+        padding: var(--spacing-4);
+        gap: var(--spacing-3);
+    }
+
+    .contact__icon {
+        width: 48px;
+        height: 48px;
+        font-size: var(--font-size-lg);
+        flex-shrink: 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .contact__item {
+        flex-direction: row;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .contact__icon {
+        margin: 0;
+    }
+
+    .contact__details {
+        text-align: left;
+    }
+
+    .contact__title,
+    .contact__text {
+        text-align: left;
+    }
+}
+
+/*--------------------------------------------------------------
+  13. FAQ — Mejorar en móvil
+--------------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+    .faq__question {
+        font-size: var(--font-size-base);
+        padding: var(--spacing-4) var(--spacing-4);
+    }
+
+    .faq__answer {
+        padding: 0 var(--spacing-4) var(--spacing-4);
+        font-size: var(--font-size-sm);
+    }
+}
+
+/*--------------------------------------------------------------
+  14. CTA SECTION — Botones apilados en móvil
+--------------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+    .cta__title {
+        font-size: var(--font-size-2xl) !important;
+        line-height: 1.3;
+    }
+
+    .cta__description {
+        font-size: var(--font-size-base) !important;
+        margin-bottom: var(--spacing-6) !important;
+    }
+
+    .cta__buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-4);
+    }
+
+    .cta__buttons .btn--primary,
+    .cta__buttons .btn--outline {
+        width: 100%;
+        max-width: 320px;
+        padding: var(--spacing-4) var(--spacing-6) !important;
+        font-size: var(--font-size-base) !important;
+        justify-content: center;
+    }
+}
+
+/*--------------------------------------------------------------
+  15. FOOTER — Mejoras en móvil
+--------------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+    .footer__content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-8);
+    }
+
+    .footer__links {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-6);
+    }
+
+    .footer__brand {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer__logo {
+        margin: 0 auto var(--spacing-4);
+    }
+
+    .footer__description {
+        text-align: center;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+
+    .footer__bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--spacing-4);
+        align-items: center;
+    }
+
+    .footer__social {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .footer__links {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-6);
+        text-align: center;
+    }
+
+    .footer__column {
+        text-align: center;
+    }
+
+    .footer__title::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .footer__list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-2);
+    }
+
+    .footer__contact {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-3);
+    }
+
+    .footer__contact-item {
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+/*--------------------------------------------------------------
+  16. MAP SECTION — Altura del mapa en móvil
+--------------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+    .map__iframe {
+        height: 300px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .map__iframe {
+        height: 250px;
+    }
+}
+
+/*--------------------------------------------------------------
+  17. WHATSAPP FAB — Mejoras en móvil
+--------------------------------------------------------------*/
+.whatsapp-fab--header {
+    display: none !important;
+}
+
+/* En desktop/tablet grande no mostrar botón inferior clonado */
+.whatsapp-fab.whatsapp-fab--scroll {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+@media screen and (max-width: 768px) {
+    .header__actions .whatsapp-fab--header {
+        display: inline-flex !important;
+        position: static !important; /* Igual comportamiento que el botón de menú */
+        width: 42px;
+        height: 42px;
+        min-width: 42px;
+        min-height: 42px;
+        padding: 0;
+        gap: 0;
+        border-radius: var(--radius-lg);
+        justify-content: center;
+        align-items: center;
+        z-index: auto !important;
+        animation: whatsappHeaderFloat 1.8s ease-in-out infinite;
+        background: linear-gradient(135deg, #25d366 0%, #1ebe57 100%);
+        box-shadow: 0 8px 18px rgba(37, 211, 102, 0.5), 0 0 16px rgba(37, 211, 102, 0.35);
+        transform: translateY(0);
+    }
+
+    /* Quitar completamente el brillo heredado del botón flotante */
+    .header__actions .whatsapp-fab--header::before {
+        content: none !important;
+        animation: none !important;
+        display: none !important;
+    }
+
+    .header__actions .whatsapp-fab--header .whatsapp-fab__icon {
+        width: auto;
+        height: auto;
+        background: transparent;
+        border-radius: 0;
+        font-size: 1.15rem;
+        color: #ffffff;
+        animation: whatsappHeaderGlow 1.8s ease-in-out infinite;
+    }
+
+    .header__actions .whatsapp-fab--header .whatsapp-fab__text {
+        display: none !important; /* Solo ícono en móvil para que quepa en la misma fila */
+    }
+
+    .header__actions .whatsapp-fab--header .whatsapp-fab__pulse {
+        display: none !important;
+    }
+
+    /* Al hacer scroll: mismo botón pasa a esquina inferior derecha */
+    .header__actions .whatsapp-fab--header.whatsapp-fab--floating {
+        position: fixed !important;
+        top: auto !important;
+        left: auto !important;
+        bottom: 1.25rem !important;
+        right: 1rem !important;
+        width: 56px;
+        height: 56px;
+        min-width: 56px;
+        min-height: 56px;
+        border-radius: 50%;
+        z-index: 10001 !important;
+        box-shadow: 0 10px 28px rgba(37, 211, 102, 0.55), 0 0 22px rgba(37, 211, 102, 0.35);
+        animation: whatsappCornerFloat 1.8s ease-in-out infinite;
+    }
+
+    .header__actions .whatsapp-fab--header.whatsapp-fab--floating::before {
+        display: none !important;
+        content: none !important;
+    }
+
+    .header__actions .whatsapp-fab--header.whatsapp-fab--floating .whatsapp-fab__icon {
+        font-size: 1.45rem;
+    }
+
+    .whatsapp-menu {
+        top: 64px;
+        bottom: auto;
+        right: var(--spacing-4);
+        min-width: 240px;
+        max-width: calc(100vw - 2rem);
+        z-index: 10002;
+    }
+
+    body.whatsapp-fab-is-floating .whatsapp-menu {
+        top: auto !important;
+        bottom: calc(1.25rem + 56px + 14px) !important;
+        right: 1rem !important;
+    }
+
+    /* Si se abre desde el botón inferior: mostrar menú a la par (lado izquierdo) */
+    body.whatsapp-menu-near-scroll-fab .whatsapp-menu {
+        top: auto !important;
+        right: calc(1rem + 56px + 12px) !important;
+        bottom: 1.25rem !important;
+        left: auto !important;
+    }
+
+    /* Botón secundario oculto: aparece al bajar de la primera sección */
+    .whatsapp-fab.whatsapp-fab--scroll {
+        position: fixed !important;
+        right: 1rem !important;
+        bottom: 1.25rem !important;
+        left: auto !important;
+        top: auto !important;
+        width: 56px !important;
+        height: 56px !important;
+        min-width: 56px !important;
+        min-height: 56px !important;
+        border-radius: 50% !important;
+        z-index: 10001 !important;
+        display: inline-flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 0 !important;
+        padding: 0 !important;
+        /* Oculto por defecto — sobreescribe los !important del base */
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+        transform: translateY(12px) scale(0.92) !important;
+        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease !important;
+        background: linear-gradient(135deg, #25d366 0%, #1ebe57 100%) !important;
+        box-shadow: 0 10px 28px rgba(37, 211, 102, 0.55), 0 0 22px rgba(37, 211, 102, 0.35) !important;
+        animation: whatsappCornerFloat 1.8s ease-in-out infinite !important;
+        overflow: visible !important;
+    }
+
+    .whatsapp-fab.whatsapp-fab--scroll::before {
+        content: '' !important;
+        position: absolute !important;
+        left: auto !important;
+        top: auto !important;
+        right: 18px !important;
+        bottom: calc(100% + 3px) !important;
+        width: 12px !important;
+        height: 12px !important;
+        background: #ffffff !important;
+        transform: rotate(45deg) !important;
+        border-radius: 2px !important;
+        display: block !important;
+        animation: none !important;
+        z-index: 10002 !important;
+        transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease !important;
+    }
+
+    .whatsapp-fab.whatsapp-fab--scroll::after {
+        content: attr(data-bubble-text);
+        position: absolute;
+        right: 0;
+        bottom: calc(100% + 10px);
+        display: block;
+        padding: 0.5rem 0.75rem;
+        border-radius: 999px;
+        background: #ffffff;
+        color: #0e2d48;
+        font-size: 0.76rem;
+        font-weight: 800;
+        line-height: 1.2;
+        letter-spacing: 0.15px;
+        white-space: nowrap;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+        z-index: 10003;
+        pointer-events: none;
+        animation: whatsappBubbleFloat 1.8s ease-in-out infinite;
+        transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease;
+    }
+
+    .whatsapp-fab.whatsapp-fab--scroll.is-visible {
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        transform: translateY(0) scale(1) !important;
+    }
+
+    .whatsapp-fab.whatsapp-fab--scroll .whatsapp-fab__pulse {
+        display: none !important;
+        content: none !important;
+        animation: none !important;
+    }
+
+    .whatsapp-fab.whatsapp-fab--scroll .whatsapp-fab__icon {
+        width: auto !important;
+        height: auto !important;
+        background: transparent !important;
+        border-radius: 0 !important;
+        font-size: 1.45rem !important;
+        color: #ffffff !important;
+        animation: none !important;
+    }
+
+    .whatsapp-fab.whatsapp-fab--scroll .whatsapp-fab__text {
+        display: none !important;
+    }
+
+    .whatsapp-fab.whatsapp-fab--scroll.whatsapp-fab--hint-dismissed::before,
+    .whatsapp-fab.whatsapp-fab--scroll.whatsapp-fab--hint-dismissed::after {
+        opacity: 0 !important;
+        visibility: hidden !important;
+        transform: translateY(6px) !important;
+    }
+}
+
+@keyframes whatsappCornerFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px) scale(1.04);
+    }
+}
+
+@keyframes whatsappHeaderFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-4px) scale(1.03);
+    }
+}
+
+@keyframes whatsappHeaderGlow {
+    0%, 100% {
+        filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0));
+    }
+    50% {
+        filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+    }
+}
+
+@keyframes whatsappBubbleFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-3px);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .header__actions .whatsapp-fab--header {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        min-height: 40px;
+    }
+
+    .header__actions .whatsapp-fab--header .whatsapp-fab__icon {
+        font-size: 0.95rem;
+    }
+
+    .header__actions .whatsapp-fab--header.whatsapp-fab--floating {
+        width: 52px;
+        height: 52px;
+        min-width: 52px;
+        min-height: 52px;
+        bottom: 1rem !important;
+        right: 0.875rem !important;
+    }
+
+    .header__actions .whatsapp-fab--header.whatsapp-fab--floating .whatsapp-fab__icon {
+        font-size: 1.35rem;
+    }
+
+    body.whatsapp-fab-is-floating .whatsapp-menu {
+        bottom: calc(1rem + 52px + 12px) !important;
+        right: 0.875rem !important;
+    }
+
+    body.whatsapp-menu-near-scroll-fab .whatsapp-menu {
+        right: calc(0.875rem + 52px + 10px) !important;
+        bottom: 1rem !important;
+    }
+
+    .whatsapp-fab.whatsapp-fab--scroll {
+        width: 52px !important;
+        height: 52px !important;
+        min-width: 52px !important;
+        min-height: 52px !important;
+        right: 0.875rem !important;
+        bottom: 1rem !important;
+        padding: 0 !important;
+        gap: 0 !important;
+    }
+
+    .whatsapp-fab.whatsapp-fab--scroll::before {
+        right: 16px !important;
+    }
+
+    .whatsapp-fab.whatsapp-fab--scroll::after {
+        font-size: 0.7rem;
+        padding: 0.42rem 0.65rem;
+        bottom: calc(100% + 9px);
+    }
+
+    .whatsapp-fab.whatsapp-fab--scroll .whatsapp-fab__icon {
+        font-size: 1.35rem !important;
+    }
+}
+
+
+@keyframes whatsappPulseMobile {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.6;
+    }
+    70% {
+        transform: translate(-50%, -50%) scale(1.22);
+        opacity: 0.1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.28);
+        opacity: 0;
+    }
+}
+
+/*--------------------------------------------------------------
+  18. SECCIÓN GENERAL — Padding adaptable
+--------------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+    .section {
+        padding: var(--spacing-12) 0;
+    }
+
+    .section__header {
+        margin-bottom: var(--spacing-8);
+    }
+
+    .section__title {
+        font-size: var(--font-size-2xl);
+    }
+
+    .section__subtitle {
+        font-size: var(--font-size-sm);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .section {
+        padding: var(--spacing-10) 0;
+        min-height: unset !important;
+    }
+
+    .about,
+    .services-preview,
+    .why-choose,
+    .cta {
+        padding: var(--spacing-10) 0 !important;
+        min-height: unset !important;
+    }
+}
+
+/*--------------------------------------------------------------
+  19. MEJORAS DE DISEÑO PROFESIONAL
+  Inspiradas en sitios de impresión y rotulación de alto nivel
+--------------------------------------------------------------*/
+
+/* Barra de contacto rápido arriba del header en desktop */
+.top-bar {
+    background: var(--dark-blue);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: var(--font-size-xs);
+    padding: var(--spacing-2) 0;
+    display: none; /* Activar si se agrega en HTML */
+}
+
+/* Mejoras a las tarjetas de servicio */
+.service-card {
+    border: 1px solid var(--gray-200);
+    border-top: 4px solid var(--accent-color);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+                box-shadow 0.3s ease,
+                border-top-color 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0, 57, 94, 0.15);
+    border-top-color: var(--secondary-color);
+}
+
+/* Mejoras a las tarjetas de producto */
+.product-list {
+    border-left: 4px solid var(--accent-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-list:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(0, 57, 94, 0.12);
+}
+
+/* Mejoras al item de preguntas frecuentes */
+.faq__item {
+    border-left: 3px solid transparent;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faq__item.active {
+    border-left-color: var(--accent-color);
+    box-shadow: 0 4px 15px rgba(0, 160, 227, 0.1);
+}
+
+/* Mejorar la visualización del proceso */
+.process__number {
+    box-shadow: 0 8px 20px rgba(0, 124, 171, 0.3);
+}
+
+.process__step {
+    transition: transform 0.3s ease;
+}
+
+.process__step:hover {
+    transform: translateY(-4px);
+}
+
+/* Mejoras a cards de "Por qué elegirnos" */
+.why-choose__item {
+    border-radius: var(--radius-xl);
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.why-choose__item:hover {
+    background: var(--white);
+    border-color: var(--gray-200);
+    box-shadow: 0 8px 25px rgba(0, 57, 94, 0.08);
+}
+
+/* Iconos de servicio más impactantes */
+.service-preview-card__icon {
+    box-shadow: 0 8px 20px rgba(0, 124, 171, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-preview-card:hover .service-preview-card__icon {
+    transform: scale(1.1) rotate(-5deg);
+    box-shadow: 0 12px 30px rgba(0, 160, 227, 0.35);
+}
+
+/* Mejorar el formulario de contacto */
+.form__input {
+    border: 2px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-3) var(--spacing-4);
+    width: 100%;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background: var(--white);
+    color: var(--gray-800);
+}
+
+.form__input:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(0, 160, 227, 0.1);
+    outline: none;
+}
+
+.form__input::placeholder {
+    color: var(--gray-400);
+}
+
+.form__group {
+    margin-bottom: var(--spacing-4);
+}
+
+/* Mejorar labels de archivos */
+.form__label {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    font-weight: var(--font-medium);
+    color: var(--gray-700);
+    margin-bottom: var(--spacing-2);
+    font-size: var(--font-size-sm);
+}
+
+.form__label i {
+    color: var(--accent-color);
+}
+
+.form__file {
+    display: block;
+    width: 100%;
+    padding: var(--spacing-3);
+    border: 2px dashed var(--gray-300);
+    border-radius: var(--radius-lg);
+    background: var(--gray-50);
+    cursor: pointer;
+    font-size: var(--font-size-sm);
+    color: var(--gray-600);
+    transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.form__file:hover {
+    border-color: var(--accent-color);
+    background: rgba(0, 160, 227, 0.04);
+}
+
+.form__help {
+    display: block;
+    margin-top: var(--spacing-1);
+    font-size: var(--font-size-xs);
+    color: var(--gray-500);
+}
+
+/* Botón submit mejorado */
+.btn--full {
+    width: 100%;
+    justify-content: center;
+    padding: var(--spacing-4) var(--spacing-6);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-bold);
+    letter-spacing: 0.5px;
+}
+
+/*--------------------------------------------------------------
+  20. SECCIÓN DE STATS — Barra de confianza estilo imprenta pro
+--------------------------------------------------------------*/
+.trust-bar {
+    background: var(--dark-blue);
+    padding: var(--spacing-6) 0;
+    border-top: 3px solid var(--accent-color);
+    border-bottom: 3px solid var(--accent-color);
+}
+
+.trust-bar__grid {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-6);
+}
+
+.trust-bar__item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+    color: var(--white);
+}
+
+.trust-bar__item i {
+    font-size: var(--font-size-2xl);
+    color: var(--accent-color);
+}
+
+.trust-bar__text strong {
+    display: block;
+    font-weight: var(--font-bold);
+    font-size: var(--font-size-lg);
+}
+
+.trust-bar__text span {
+    font-size: var(--font-size-xs);
+    opacity: 0.7;
+}
+
+@media screen and (max-width: 576px) {
+    .trust-bar__grid {
+        flex-direction: column;
+        gap: var(--spacing-4);
+        align-items: flex-start;
+        padding: 0 var(--spacing-4);
+    }
+}
+
+/*--------------------------------------------------------------
+  21. EFECTOS DE SCROLL REVEAL — Animaciones de entrada suaves
+--------------------------------------------------------------*/
+@media (prefers-reduced-motion: no-preference) {
+    .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*--------------------------------------------------------------
+  22. MEJORAS GENERALES DE ACCESIBILIDAD Y UX
+--------------------------------------------------------------*/
+
+/* Focus visible para teclado */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* Prevenir overflow horizontal en toda la página */
+html, body {
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+/* Asegurar que las imágenes no rompan el layout */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Mejorar legibilidad en pantallas pequeñas */
+@media screen and (max-width: 480px) {
+    p, li {
+        font-size: var(--font-size-sm);
+        line-height: 1.65;
+    }
+
+    h2 {
+        font-size: var(--font-size-2xl);
+        line-height: 1.25;
+    }
+
+    h3 {
+        font-size: var(--font-size-lg);
+    }
+}
+
+/*--------------------------------------------------------------
+  23. SECTION DIVIDERS — Separadores visuales profesionales
+--------------------------------------------------------------*/
+.section--alt {
+    background: var(--gray-50);
+}
+
+/* Separador visual entre secciones */
+.section-wave {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+/*--------------------------------------------------------------
+  24. TARJETA HERO — Mejoras de legibilidad sin overlay
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+  25. BADGE DE WHATSAPP EN HERO — CTA más llamativo
+--------------------------------------------------------------*/
+.hero__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    background: rgba(37, 211, 102, 0.15);
+    border: 1px solid rgba(37, 211, 102, 0.4);
+    color: #25d366;
+    padding: var(--spacing-2) var(--spacing-4);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-semibold);
+    letter-spacing: 0.5px;
+    margin-bottom: var(--spacing-4);
+}
+
+.hero__badge i {
+    font-size: var(--font-size-base);
+}
+
+@media screen and (max-width: 768px) {
+    .works__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-4);
+    }
+
+    .work-card__img {
+        height: 160px;
+    }
+
+    .work-card__title {
+        font-size: var(--font-size-base);
+        padding: var(--spacing-3);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .works__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .work-card__img {
+        height: 190px;
+    }
+}
+
+/*--------------------------------------------------------------
+  26. PRINT — Estilos para impresión de página
+--------------------------------------------------------------*/
+@media print {
+    .header,
+    .whatsapp-fab,
+    .whatsapp-menu,
+    .back-to-top,
+    .hero__media-gallery,
+    .cta {
+        display: none !important;
+    }
+
+    body {
+        color: #000;
+        background: #fff;
+    }
+}
+

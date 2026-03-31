@@ -11,6 +11,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="img/vefod_ico.jpg">
     <link rel="apple-touch-icon" sizes="180x180" href="img/vefod_ico.jpg">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
     <!-- Remixicon para iconos -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <!-- Google Fonts -->
@@ -42,16 +43,36 @@
 
                     <div class="header__menu-section">
                         <nav class="nav" id="nav">
+                            <div class="nav__drawer-header">
+                                <img src="img/vefod-logo.png" alt="VEFOD" class="nav__drawer-logo">
+                                <button class="nav__close" id="nav-close" aria-label="Cerrar menú">
+                                    <i class="ri-close-line"></i>
+                                </button>
+                            </div>
                             <ul class="nav__list">
-                                <li class="nav__item"><a href="index.html" class="nav__link active">Inicio</a></li>
-                                <li class="nav__item"><a href="servicios.html" class="nav__link">Servicios</a></li>
-                                <li class="nav__item"><a href="productos.html" class="nav__link">Productos</a></li>
-                                <li class="nav__item"><a href="contacto.html" class="nav__link">Contacto</a></li>
+                                <li class="nav__item"><a href="index.html" class="nav__link active"><i class="ri-home-line nav__link-icon"></i>Inicio</a></li>
+                                <li class="nav__item"><a href="servicios.html" class="nav__link"><i class="ri-brush-2-line nav__link-icon"></i>Servicios</a></li>
+                                <li class="nav__item"><a href="productos.html" class="nav__link"><i class="ri-price-tag-3-line nav__link-icon"></i>Productos</a></li>
+                                <li class="nav__item"><a href="contacto.html" class="nav__link"><i class="ri-phone-line nav__link-icon"></i>Contacto</a></li>
                             </ul>
+                            <div class="nav__drawer-footer">
+                                <a href="https://wa.me/50661025947/?text=Hola%20VEFOD,%20quiero%20cotizar." target="_blank" rel="noopener" class="nav__drawer-cta">
+                                    <i class="ri-whatsapp-line"></i>
+                                    <span>Cotizar por WhatsApp</span>
+                                </a>
+                                <p class="nav__drawer-tagline">VEFOD Media &amp; Diseño</p>
+                            </div>
                         </nav>
 
                         <div class="header__actions">
-                            <a href="contacto.html" class="btn btn--primary">Cotizar</a>
+                            <a href="https://wa.me/50661025947/?text=Hola%20VEFOD,%20quiero%20cotizar." target="_blank" rel="noopener" class="btn btn--primary">Cotizar por WhatsApp</a>
+                            <div class="whatsapp-fab whatsapp-fab--header" id="whatsappFab" aria-label="Contáctanos por WhatsApp" role="button" tabindex="0">
+                                <div class="whatsapp-fab__icon">
+                                    <i class="ri-whatsapp-line"></i>
+                                </div>
+                                <span class="whatsapp-fab__text">Contáctanos</span>
+                                <div class="whatsapp-fab__pulse"></div>
+                            </div>
                             <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú">
                                 <i class="ri-menu-line"></i>
                             </button>
@@ -64,17 +85,16 @@
         <!-- Hero Content -->
         <div class="container hero__container">
             <div class="hero__content">
-                <h1 class="hero__title">TE DAMOS LA BIENVENIDA A VEFOD</h1>
-                <p class="hero__subtitle">IMPRESIÓN Y ROTULACIÓN</p>
-                <p class="hero__description">Soluciones profesionales de diseño, impresión y rotulación para hacer destacar tu negocio con la mejor calidad.</p>
+                <h1 class="hero__title">IMPRESIÓN Y ROTULACIÓN PROFESIONAL EN COSTA RICA.</h1>
+                <p class="hero__description">LONAS, VINIL, RÓTULOS COMERCIALES, STICKERS CON CALIDAD PROFESIONAL Y ENTREGA RÁPIDA.</p>
                 <div class="hero__buttons">
-                    <a href="productos.html" class="btn btn--primary">
-                        <span>Ver Catálogo</span>
-                        <i class="ri-arrow-right-line"></i>
+                    <a href="https://wa.me/50661025947/?text=Hola%20VEFOD,%20quiero%20cotizar." target="_blank" rel="noopener" class="btn btn--primary">
+                        <span>Cotizar por WhatsApp</span>
+                        <i class="ri-whatsapp-line"></i>
                     </a>
-                    <a href="contacto.html" class="btn btn--outline">
-                        <span>Contactar</span>
-                        <i class="ri-customer-service-line"></i>
+                    <a href="https://www.google.com/maps/place/Vefod/@9.8967013,-84.0845157,13z/data=!4m6!3m5!1s0x8fa0e3798a468233:0x4bdc61453148bd44!8m2!3d9.8967013!4d-84.0433164!16s%2Fg%2F11w2h8wh1_?entry=ttu" target="_blank" rel="noopener" class="btn btn--outline">
+                        <span>Ver Ubicación</span>
+                        <i class="ri-map-pin-line"></i>
                     </a>
                 </div>
             </div>
@@ -114,7 +134,7 @@
             <div class="container">
                 <div class="about__content">
                     <div class="about__text">
-                        <h2 class="section__title">¿Quiénes Somos?</h2>
+                        <h2 class="section__title">¿QUIÉNES SOMOS?</h2>
                         <p class="about__description">
                             VEFOD Media & Diseño es una empresa especializada en soluciones integrales de comunicación visual. 
                             Con más de x años de experiencia en el mercado costarricense, nos hemos consolidado como líderes 
@@ -127,15 +147,15 @@
                         </p>
                         <div class="about__stats">
                             <div class="stat">
-                                <h3 class="stat__number">x</h3>
+                                <h3 class="stat__number" data-target="250" data-prefix="+">0</h3>
                                 <p class="stat__label">Proyectos Completados</p>
                             </div>
                             <div class="stat">
-                                <h3 class="stat__number">x</h3>
+                                <h3 class="stat__number" data-target="180" data-prefix="+">0</h3>
                                 <p class="stat__label">Clientes Satisfechos</p>
                             </div>
                             <div class="stat">
-                                <h3 class="stat__number">x</h3>
+                                <h3 class="stat__number" data-target="8" data-prefix="+">0</h3>
                                 <p class="stat__label">Años de Experiencia</p>
                             </div>
                         </div>
@@ -147,11 +167,46 @@
             </div>
         </section>
 
+        <!-- Trabajos Realizados -->
+        <section class="works section" id="trabajos">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">TRABAJOS REALIZADOS</h2>
+                    <p class="section__subtitle">Algunos proyectos que hemos realizado para negocios y emprendedores</p>
+                </div>
+
+                <div class="works-carousel" id="worksCarousel">
+                    <div class="works-carousel__track">
+                        <article class="work-card works-carousel__slide">
+                            <img src="img/imagen_recibo.png" alt="Rótulos realizados por VEFOD" class="work-card__img">
+                            <h3 class="work-card__title">Rótulos</h3>
+                        </article>
+
+                        <article class="work-card works-carousel__slide">
+                            <img src="img/img_principal.png" alt="Lonas grandes realizadas por VEFOD" class="work-card__img">
+                            <h3 class="work-card__title">Lonas grandes</h3>
+                        </article>
+
+                        <article class="work-card works-carousel__slide">
+                            <img src="img/tarjeta_presentación.png" alt="Stickers personalizados realizados por VEFOD" class="work-card__img">
+                            <h3 class="work-card__title">Stickers</h3>
+                        </article>
+
+                        <article class="work-card works-carousel__slide">
+                            <img src="img/imagen_roler_up.png" alt="Fachadas realizadas por VEFOD" class="work-card__img">
+                            <h3 class="work-card__title">Fachadas</h3>
+                        </article>
+                    </div>
+                    <div class="works-carousel__dots" aria-label="Selector de trabajos"></div>
+                </div>
+            </div>
+        </section>
+
         <!-- Services Preview Section -->
         <section class="services-preview section" id="services-preview">
             <div class="container">
                 <div class="section__header">
-                    <h2 class="section__title">Nuestros Servicios</h2>
+                    <h2 class="section__title">NUESTROS SERVICIOS</h2>
                     <p class="section__subtitle">Soluciones completas para tu negocio</p>
                 </div>
 
@@ -188,7 +243,7 @@
         <section class="why-choose section" id="why-choose">
             <div class="container">
                 <div class="section__header">
-                    <h2 class="section__title">¿Por Qué Elegirnos?</h2>
+                    <h2 class="section__title">¿POR QUÉ ELEGIR VEFOD?</h2>
                     <p class="section__subtitle">Las ventajas que nos hacen únicos</p>
                 </div>
 
@@ -198,8 +253,8 @@
                             <i class="ri-award-line"></i>
                         </div>
                         <div class="why-choose__content">
-                            <h3 class="why-choose__title">Calidad Garantizada</h3>
-                            <p class="why-choose__description">Utilizamos materiales de calidad y tecnología  para garantizar resultados excepcionales.</p>
+                            <h3 class="why-choose__title">Impresión de alta calidad</h3>
+                            <p class="why-choose__description">Trabajamos con procesos y materiales de alto estándar para resultados duraderos.</p>
                         </div>
                     </div>
 
@@ -208,8 +263,8 @@
                             <i class="ri-time-line"></i>
                         </div>
                         <div class="why-choose__content">
-                            <h3 class="why-choose__title">Entrega Rápida</h3>
-                            <p class="why-choose__description">Cumplimos con los tiempos de entrega acordados sin comprometer la calidad del trabajo final.</p>
+                            <h3 class="why-choose__title">Equipos profesionales</h3>
+                            <p class="why-choose__description">Contamos con maquinaria y herramientas especializadas para cada tipo de proyecto.</p>
                         </div>
                     </div>
 
@@ -218,8 +273,8 @@
                             <i class="ri-customer-service-2-line"></i>
                         </div>
                         <div class="why-choose__content">
-                            <h3 class="why-choose__title">Atención Personalizada</h3>
-                            <p class="why-choose__description">Cada proyecto es único y recibe la atención personalizada que merece para alcanzar los mejores resultados.</p>
+                            <h3 class="why-choose__title">Entrega rápida</h3>
+                            <p class="why-choose__description">Nos enfocamos en tiempos de respuesta ágiles sin perder calidad en la entrega.</p>
                         </div>
                     </div>
 
@@ -228,8 +283,8 @@
                             <i class="ri-price-tag-3-line"></i>
                         </div>
                         <div class="why-choose__content">
-                            <h3 class="why-choose__title">Precios Competitivos</h3>
-                            <p class="why-choose__description">Ofrecemos precios justos y competitivos sin sacrificar la calidad de nuestros productos y servicios.</p>
+                            <h3 class="why-choose__title">Atención personalizada</h3>
+                            <p class="why-choose__description">Te asesoramos de forma cercana para adaptar cada solución a tu necesidad real.</p>
                         </div>
                     </div>
                 </div>
@@ -245,13 +300,13 @@
                         Contáctanos hoy mismo y descubre cómo podemos ayudarte a destacar con soluciones visuales profesionales.
                     </p>
                     <div class="cta__buttons">
-                        <a href="contacto.html" class="btn btn--primary btn--large">
-                            <span>Solicitar Cotización</span>
-                            <i class="ri-customer-service-line"></i>
+                        <a href="https://wa.me/50661025947/?text=Hola%20VEFOD,%20quiero%20cotizar." target="_blank" rel="noopener" class="btn btn--primary btn--large">
+                            <span>Cotizar por WhatsApp</span>
+                            <i class="ri-whatsapp-line"></i>
                         </a>
-                        <a href="productos.html" class="btn btn--outline btn--large">
-                            <span>Ver Productos</span>
-                            <i class="ri-eye-line"></i>
+                        <a href="https://www.google.com/maps/place/Vefod/@9.8967013,-84.0845157,13z/data=!4m6!3m5!1s0x8fa0e3798a468233:0x4bdc61453148bd44!8m2!3d9.8967013!4d-84.0433164!16s%2Fg%2F11w2h8wh1_?entry=ttu" target="_blank" rel="noopener" class="btn btn--outline btn--large">
+                            <span>Ver Ubicación</span>
+                            <i class="ri-map-pin-line"></i>
                         </a>
                     </div>
                 </div>
@@ -322,15 +377,6 @@
         </div>
     </footer>
 
-    <!-- WhatsApp Floating Button -->
-    <div class="whatsapp-fab" id="whatsappFab" aria-label="Contactar por WhatsApp">
-        <div class="whatsapp-fab__icon">
-            <i class="ri-whatsapp-line"></i>
-        </div>
-        <span class="whatsapp-fab__text">Contáctanos</span>
-        <div class="whatsapp-fab__pulse"></div>
-    </div>
-
     <div class="whatsapp-menu" id="whatsappMenu" hidden>
         <div class="whatsapp-menu__header">
             <i class="ri-whatsapp-line"></i>
@@ -357,6 +403,8 @@
             <i class="ri-arrow-right-line whatsapp-menu__item-arrow"></i>
         </a>
     </div>
+
+    <div class="nav-overlay" id="navOverlay"></div>
 
     <script src="js/main.js"></script>
 </body>

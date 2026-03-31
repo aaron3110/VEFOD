@@ -11,6 +11,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="img/vefod_ico.jpg">
     <link rel="apple-touch-icon" sizes="180x180" href="img/vefod_ico.jpg">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
     <!-- Remixicon para iconos -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <!-- Google Fonts -->
@@ -29,16 +30,36 @@
 
                 <div class="header__menu-section">
                     <nav class="nav" id="nav">
+                        <div class="nav__drawer-header">
+                            <img src="img/vefod-logo.png" alt="VEFOD" class="nav__drawer-logo">
+                            <button class="nav__close" id="nav-close" aria-label="Cerrar menú">
+                                <i class="ri-close-line"></i>
+                            </button>
+                        </div>
                         <ul class="nav__list">
-                            <li class="nav__item"><a href="index.html" class="nav__link">Inicio</a></li>
-                            <li class="nav__item"><a href="servicios.html" class="nav__link active">Servicios</a></li>
-                            <li class="nav__item"><a href="productos.html" class="nav__link">Productos</a></li>
-                            <li class="nav__item"><a href="contacto.html" class="nav__link">Contacto</a></li>
+                            <li class="nav__item"><a href="index.html" class="nav__link"><i class="ri-home-line nav__link-icon"></i>Inicio</a></li>
+                            <li class="nav__item"><a href="servicios.html" class="nav__link active"><i class="ri-brush-2-line nav__link-icon"></i>Servicios</a></li>
+                            <li class="nav__item"><a href="productos.html" class="nav__link"><i class="ri-price-tag-3-line nav__link-icon"></i>Productos</a></li>
+                            <li class="nav__item"><a href="contacto.html" class="nav__link"><i class="ri-phone-line nav__link-icon"></i>Contacto</a></li>
                         </ul>
+                        <div class="nav__drawer-footer">
+                            <a href="https://wa.me/50661025947/?text=Hola%20VEFOD,%20quiero%20cotizar." target="_blank" rel="noopener" class="nav__drawer-cta">
+                                <i class="ri-whatsapp-line"></i>
+                                <span>Cotizar por WhatsApp</span>
+                            </a>
+                            <p class="nav__drawer-tagline">VEFOD Media &amp; Diseño</p>
+                        </div>
                     </nav>
 
                     <div class="header__actions">
-                        <a href="contacto.html" class="btn btn--primary">Cotizar</a>
+                        <a href="https://wa.me/50661025947/?text=Hola%20VEFOD,%20quiero%20cotizar." target="_blank" rel="noopener" class="btn btn--primary">Cotizar por WhatsApp</a>
+                        <div class="whatsapp-fab whatsapp-fab--header" id="whatsappFab" aria-label="Contáctanos por WhatsApp" role="button" tabindex="0">
+                            <div class="whatsapp-fab__icon">
+                                <i class="ri-whatsapp-line"></i>
+                            </div>
+                            <span class="whatsapp-fab__text">Contáctanos</span>
+                            <div class="whatsapp-fab__pulse"></div>
+                        </div>
                         <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú">
                             <i class="ri-menu-line"></i>
                         </button>
@@ -64,41 +85,44 @@
         <section class="services section" id="servicios">
             <div class="container">
                 <div class="section__header">
-                    <h2 class="section__title">Servicios Especializados</h2>
+                    <h2 class="section__title">SERVICIOS ESPECIALIZADOS</h2>
                     <p class="section__subtitle">Ofrecemos soluciones completas en comunicación visual</p>
                 </div>
 
                 <div class="services__grid">
                     <div class="service-card">
                         <div class="service-card__icon">
-                            <i class="ri-route-line"></i>
+                            <i class="ri-image-line"></i>
                         </div>
-                        <h3 class="service-card__title">Señalética y rotulación especial</h3>
-                        <ul class="service-card__features icon-list">
-                            <li><i class="ri-check-line"></i><span>PVC</span></li>
-                            <li><i class="ri-check-line"></i><span>Letreros</span></li>
-                            <li><i class="ri-check-line"></i><span>Letras corpóreas</span></li>
-                            <li><i class="ri-check-line"></i><span>Roller up</span></li>
-                            <li><i class="ri-check-line"></i><span>Gafetes en PVC</span></li>
-                        </ul>
+                        <h3 class="service-card__title">Impresión en Lona</h3>
+                        <p class="service-card__description">Banners publicitarios, eventos, promociones y fachadas.</p>
                         <a href="contacto.html" class="service-card__link">Cotizar <i class="ri-arrow-right-line"></i></a>
                     </div>
 
                     <div class="service-card">
                         <div class="service-card__icon">
-                            <i class="ri-file-list-2-line"></i>
+                            <i class="ri-scissors-cut-line"></i>
                         </div>
-                        <h3 class="service-card__title">Materiales impresos y de oficina</h3>
-                        <ul class="service-card__features icon-list">
-                            <li><i class="ri-check-line"></i><span>Stiker (cualquier tamaño)</span></li>
-                            <li><i class="ri-check-line"></i><span>Recibos</span></li>
-                            <li><i class="ri-check-line"></i><span>Talonarios o facturas</span></li>
-                            <li><i class="ri-check-line"></i><span>Volantes</span></li>
-                            <li><i class="ri-check-line"></i><span>Tarjetas de presentación</span></li>
-                            <li><i class="ri-check-line"></i><span>Sellos automáticos</span></li>
-                            <li><i class="ri-check-line"></i><span>Sellos en madera</span></li>
-                            <li><i class="ri-check-line"></i><span>Sello de agua</span></li>
-                        </ul>
+                        <h3 class="service-card__title">Corte en Vinil</h3>
+                        <p class="service-card__description">Decoración de vidrieras, rótulos y rotulación comercial.</p>
+                        <a href="contacto.html" class="service-card__link">Cotizar <i class="ri-arrow-right-line"></i></a>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card__icon">
+                            <i class="ri-store-2-line"></i>
+                        </div>
+                        <h3 class="service-card__title">Rotulación de Negocios</h3>
+                        <p class="service-card__description">Diseño e instalación de publicidad para locales.</p>
+                        <a href="contacto.html" class="service-card__link">Cotizar <i class="ri-arrow-right-line"></i></a>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card__icon">
+                            <i class="ri-sticky-note-line"></i>
+                        </div>
+                        <h3 class="service-card__title">Stickers Personalizados</h3>
+                        <p class="service-card__description">Stickers personalizados para marcas y uso comercial.</p>
                         <a href="contacto.html" class="service-card__link">Cotizar <i class="ri-arrow-right-line"></i></a>
                     </div>
                 </div>
@@ -109,40 +133,40 @@
         <section class="process section" id="process">
             <div class="container">
                 <div class="section__header">
-                    <h2 class="section__title">Nuestro Proceso</h2>
-                    <p class="section__subtitle">Cómo trabajamos para garantizar tu satisfacción</p>
+                    <h2 class="section__title">PROCESO DE TRABAJO</h2>
+                    <p class="section__subtitle">Así trabajamos en cada proyecto</p>
                 </div>
 
                 <div class="process__steps">
                     <div class="process__step">
                         <div class="process__number">01</div>
                         <div class="process__content">
-                            <h3 class="process__title">Consulta Inicial</h3>
-                            <p class="process__description">Analizamos tus necesidades y objetivos para entender el alcance del proyecto.</p>
+                            <h3 class="process__title">Nos envias tu diseño o idea con medidas</h3>
+                            <p class="process__description">Recibimos la información inicial para preparar tu proyecto correctamente.</p>
                         </div>
                     </div>
 
                     <div class="process__step">
                         <div class="process__number">02</div>
                         <div class="process__content">
-                            <h3 class="process__title">Diseño y Propuesta</h3>
-                            <p class="process__description">Observamos el proyecto y presentamos propuestas con precios competitivos.</p>
+                            <h3 class="process__title">Te cotizamos rápido</h3>
+                            <p class="process__description">Te enviamos una cotización clara en el menor tiempo posible.</p>
                         </div>
                     </div>
 
                     <div class="process__step">
                         <div class="process__number">03</div>
                         <div class="process__content">
-                            <h3 class="process__title">Producción</h3>
-                            <p class="process__description">Producimos tu proyecto con la máxima calidad.</p>
+                            <h3 class="process__title">Imprimimos y preparamos tu pedido</h3>
+                            <p class="process__description">Realizamos la producción y alistamos todo para entrega final.</p>
                         </div>
                     </div>
 
                     <div class="process__step">
                         <div class="process__number">04</div>
                         <div class="process__content">
-                            <h3 class="process__title">Instalación y Entrega</h3>
-                            <p class="process__description">Te ayudamos con la instalación y te entregamos el proyecto terminado.</p>
+                            <h3 class="process__title">Entrega o instalación</h3>
+                            <p class="process__description">Te entregamos el trabajo listo o coordinamos la instalación.</p>
                         </div>
                     </div>
                 </div>
@@ -158,13 +182,13 @@
                         Contáctanos para una consulta personalizada y descubre cómo podemos ayudarte con tu proyecto.
                     </p>
                     <div class="cta__buttons">
-                        <a href="contacto.html" class="btn btn--primary btn--large">
-                            <span>Solicitar Cotización</span>
-                            <i class="ri-customer-service-line"></i>
+                        <a href="https://wa.me/50661025947/?text=Hola%20VEFOD,%20quiero%20cotizar." target="_blank" rel="noopener" class="btn btn--primary btn--large">
+                            <span>Cotizar por WhatsApp</span>
+                            <i class="ri-whatsapp-line"></i>
                         </a>
-                        <a href="productos.html" class="btn btn--outline btn--large">
-                            <span>Ver Productos</span>
-                            <i class="ri-eye-line"></i>
+                        <a href="https://www.google.com/maps/place/Vefod/@9.8967013,-84.0845157,13z/data=!4m6!3m5!1s0x8fa0e3798a468233:0x4bdc61453148bd44!8m2!3d9.8967013!4d-84.0433164!16s%2Fg%2F11w2h8wh1_?entry=ttu" target="_blank" rel="noopener" class="btn btn--outline btn--large">
+                            <span>Ver Ubicación</span>
+                            <i class="ri-map-pin-line"></i>
                         </a>
                     </div>
                 </div>
@@ -235,15 +259,6 @@
         </div>
     </footer>
 
-    <!-- WhatsApp Floating Button -->
-    <div class="whatsapp-fab" id="whatsappFab" aria-label="Contactar por WhatsApp">
-        <div class="whatsapp-fab__icon">
-            <i class="ri-whatsapp-line"></i>
-        </div>
-        <span class="whatsapp-fab__text">Contáctanos</span>
-        <div class="whatsapp-fab__pulse"></div>
-    </div>
-
     <div class="whatsapp-menu" id="whatsappMenu" hidden>
         <div class="whatsapp-menu__header">
             <i class="ri-whatsapp-line"></i>
@@ -270,6 +285,8 @@
             <i class="ri-arrow-right-line whatsapp-menu__item-arrow"></i>
         </a>
     </div>
+
+    <div class="nav-overlay" id="navOverlay"></div>
 
     <script src="js/main.js"></script>
 </body>

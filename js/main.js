@@ -12,58 +12,136 @@ const contactForm = document.getElementById('contactForm');
 const currentYearElement = document.getElementById('current-year');
 
 /*=============== HEADER SCROLL EFFECT ===============*/
-let scrollTimeout;
-let isScrolling = false;
 
 function scrollHeader() {
+    updateWhatsAppFabFloatMode();
     if (!header) return;
+    
+    // Si no existe hero-header (paginas internas), mantener estado scrolled.
+    const hasHeroHeader = Boolean(document.querySelector('.hero-header'));
+    if (!hasHeroHeader) {
+        header.classList.add('scrolled');
+        return;
+    }
     
     const scrollY = window.scrollY || window.pageYOffset;
     
     if (scrollY >= 50) {
         header.classList.add('scrolled');
-        // Forzar estilos inline para asegurar que se apliquen
-        header.style.position = 'fixed';
-        header.style.top = '0';
-        header.style.left = '0';
-        header.style.right = '0';
-        header.style.width = '100vw';
-        header.style.zIndex = '10000';
-        header.style.margin = '0';
-        header.style.transform = 'none';
-        header.style.maxWidth = '100%';
     } else {
         header.classList.remove('scrolled');
-        // Restaurar estilos cuando no hay scroll
-        header.style.position = 'absolute';
-        header.style.zIndex = '1000';
-        header.style.width = '100%';
-        header.style.margin = '';
-        header.style.transform = '';
-        header.style.maxWidth = '';
     }
-    
-    // Activar animación solo cuando se está scrollando
-    if (!isScrolling) {
-        isScrolling = true;
-        header.classList.add('scrolling');
+}
+
+/*=============== WHATSAPP: HEADER → ESQUINA INFERIOR (MÓVIL) ===============*/
+function updateWhatsAppFabFloatMode() {
+    // Mantener botón del header fijo en su lugar (sin moverlo)
+    const headerFab = document.getElementById('whatsappFab');
+    if (!headerFab) return;
+    headerFab.classList.remove('whatsapp-fab--floating');
+    document.body.classList.remove('whatsapp-fab-is-floating');
+}
+
+function updateScrollWhatsAppFabVisibility() {
+    const scrollFab = document.getElementById('whatsappFabScroll');
+    const whatsappMenu = document.getElementById('whatsappMenu');
+    if (!scrollFab) return;
+
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    if (!isMobile) {
+        scrollFab.classList.remove('is-visible');
+        scrollFab.classList.remove('whatsapp-fab--hint-dismissed');
+        document.body.classList.remove('whatsapp-menu-near-scroll-fab');
+        if (whatsappMenu && !whatsappMenu.hasAttribute('hidden')) {
+            setWhatsAppMenuAnchor('header');
+        }
+        return;
     }
-    
-    // Limpiar timeout anterior
-    clearTimeout(scrollTimeout);
-    
-    // Quitar clase scrolling después de que termine el scroll
-    scrollTimeout = setTimeout(() => {
-        isScrolling = false;
-        header.classList.remove('scrolling');
-    }, 150);
+
+    const triggerSection = document.querySelector('.hero-header, .page-hero');
+    const headerEl = document.getElementById('header');
+    const headerHeight = headerEl ? headerEl.offsetHeight : 80;
+    const scrollY = window.scrollY || window.pageYOffset;
+
+    if (!triggerSection) {
+        scrollFab.classList.remove('is-visible');
+        scrollFab.classList.remove('whatsapp-fab--hint-dismissed');
+        document.body.classList.remove('whatsapp-menu-near-scroll-fab');
+        if (whatsappMenu && !whatsappMenu.hasAttribute('hidden')) {
+            setWhatsAppMenuAnchor('header');
+        }
+        return;
+    }
+
+    const sectionRect = triggerSection.getBoundingClientRect();
+
+    // Mostrar solo cuando toda la primera sección ya salió de pantalla (no solo del header).
+    const hasLeftFirstSection = sectionRect.bottom <= 0;
+
+    if (hasLeftFirstSection) {
+        scrollFab.classList.add('is-visible');
+    } else {
+        scrollFab.classList.remove('is-visible');
+        scrollFab.classList.remove('whatsapp-fab--hint-dismissed');
+    }
+
+    // Si el menú está abierto, anclarlo al botón visible correcto.
+    if (whatsappMenu && !whatsappMenu.hasAttribute('hidden')) {
+        setWhatsAppMenuAnchor(scrollFab.classList.contains('is-visible') ? 'scroll' : 'header');
+    }
+}
+
+function createScrollWhatsAppFab() {
+    const headerFab = document.getElementById('whatsappFab');
+    if (!headerFab || document.getElementById('whatsappFabScroll')) return;
+
+    const scrollFab = headerFab.cloneNode(true);
+    scrollFab.id = 'whatsappFabScroll';
+    scrollFab.classList.remove('whatsapp-fab--header');
+    scrollFab.classList.remove('whatsapp-fab--floating');
+    scrollFab.classList.add('whatsapp-fab--scroll');
+    scrollFab.setAttribute('aria-label', 'WhatsApp flotante');
+
+    document.body.appendChild(scrollFab);
+}
+
+function setWhatsAppMenuAnchor(anchor) {
+    const menu = document.getElementById('whatsappMenu');
+    if (!menu) return;
+
+    ['top', 'right', 'bottom', 'left'].forEach((prop) => {
+        menu.style.removeProperty(prop);
+    });
+
+    if (anchor === 'scroll') {
+        menu.style.setProperty('top', 'auto', 'important');
+        menu.style.setProperty('left', 'auto', 'important');
+        menu.style.setProperty('right', 'calc(1rem + 56px + 12px)', 'important');
+        menu.style.setProperty('bottom', '1.25rem', 'important');
+        document.body.classList.add('whatsapp-menu-near-scroll-fab');
+        return;
+    }
+
+    menu.style.setProperty('top', '64px', 'important');
+    menu.style.setProperty('left', 'auto', 'important');
+    menu.style.setProperty('right', 'var(--spacing-4)', 'important');
+    menu.style.setProperty('bottom', 'auto', 'important');
+    document.body.classList.remove('whatsapp-menu-near-scroll-fab');
 }
 
 // Ejecutar al cargar para verificar posición inicial
 scrollHeader();
+updateWhatsAppFabFloatMode();
+createScrollWhatsAppFab();
+updateScrollWhatsAppFabVisibility();
 
 // Agregar listener de scroll
 window.addEventListener('scroll', scrollHeader, { passive: true });
+window.addEventListener('resize', updateWhatsAppFabFloatMode, { passive: true });
+window.addEventListener('orientationchange', updateWhatsAppFabFloatMode, { passive: true });
+window.addEventListener('scroll', updateScrollWhatsAppFabVisibility, { passive: true });
+window.addEventListener('resize', updateScrollWhatsAppFabVisibility, { passive: true });
+window.addEventListener('orientationchange', updateScrollWhatsAppFabVisibility, { passive: true });
 
 /*=============== HERO VIDEO SCROLL ZOOM EFFECT ===============*/
 function heroVideoScrollZoom() {
@@ -81,10 +159,6 @@ function heroVideoScrollZoom() {
         if (heroBg) {
             heroBg.style.transform = 'scale(1)';
             heroBg.style.transition = 'none';
-        }
-        const heroHeader = document.querySelector('.hero-header');
-        if (heroHeader) {
-            heroHeader.style.transform = 'scale(1)';
         }
         return;
     }
@@ -202,25 +276,53 @@ window.addEventListener('resize', heroVideoScrollZoom);
 document.addEventListener('DOMContentLoaded', heroVideoScrollZoom);
 
 /*=============== MOBILE NAVIGATION ===============*/
+const navOverlay = document.getElementById('navOverlay');
+const navClose = document.getElementById('nav-close');
+
+function openMenu() {
+    navMenu.classList.add('show');
+    document.body.classList.add('nav-open');
+    navToggle.setAttribute('aria-expanded', 'true');
+    navToggle.setAttribute('aria-label', 'Cerrar menú');
+    const icon = navToggle.querySelector('i');
+    if (icon) { icon.className = 'ri-close-line'; }
+}
+
+function closeMenu() {
+    navMenu.classList.remove('show');
+    document.body.classList.remove('nav-open');
+    navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.setAttribute('aria-label', 'Abrir menú');
+    const icon = navToggle.querySelector('i');
+    if (icon) { icon.className = 'ri-menu-line'; }
+}
+
 function toggleMenu() {
-    navMenu.classList.toggle('show');
+    navMenu.classList.contains('show') ? closeMenu() : openMenu();
 }
 
 navToggle.addEventListener('click', toggleMenu);
 
-// Close menu when clicking on a nav link
+// Botón X dentro del drawer
+if (navClose) navClose.addEventListener('click', closeMenu);
+
+// Overlay click cierra
+if (navOverlay) navOverlay.addEventListener('click', closeMenu);
+
+// Cerrar al hacer clic en un link
 navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('show');
-    });
+    link.addEventListener('click', closeMenu);
 });
 
-// Close menu when clicking outside
-document.addEventListener('click', (e) => {
-    if (!navMenu.contains(e.target) && !navToggle.contains(e.target) && navMenu.classList.contains('show')) {
-        navMenu.classList.remove('show');
-    }
+// Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navMenu.classList.contains('show')) closeMenu();
 });
+
+// Cerrar al pasar a desktop
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768 && navMenu.classList.contains('show')) closeMenu();
+}, { passive: true });
 
 /*=============== ACTIVE LINK ON SCROLL ===============*/
 function activeLink() {
@@ -422,8 +524,163 @@ if (currentYearElement) {
     currentYearElement.textContent = new Date().getFullYear();
 }
 
+/*=============== ABOUT COUNTERS ===============*/
+function initAboutCounters() {
+    const counters = document.querySelectorAll('.about__stats .stat__number[data-target]');
+    if (!counters.length) return;
+
+    const animateCounter = (counter) => {
+        const target = Number(counter.dataset.target || 0);
+        const prefix = counter.dataset.prefix || '';
+        const suffix = counter.dataset.suffix || '';
+        if (!Number.isFinite(target) || target <= 0) return;
+
+        const duration = 1500;
+        const startTime = performance.now();
+
+        const step = (now) => {
+            const progress = Math.min((now - startTime) / duration, 1);
+            const currentValue = Math.floor(target * progress);
+            counter.textContent = `${prefix}${currentValue}${suffix}`;
+
+            if (progress < 1) {
+                requestAnimationFrame(step);
+            } else {
+                counter.textContent = `${prefix}${target}${suffix}`;
+            }
+        };
+
+        requestAnimationFrame(step);
+    };
+
+    const resetCounter = (counter) => {
+        const prefix = counter.dataset.prefix || '';
+        const suffix = counter.dataset.suffix || '';
+        counter.textContent = `${prefix}0${suffix}`;
+    };
+
+    const section = document.querySelector('.about');
+    if (!section) return;
+
+    let hasAnimatedInView = false;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                if (!hasAnimatedInView) {
+                    counters.forEach(animateCounter);
+                    hasAnimatedInView = true;
+                }
+                return;
+            }
+
+            hasAnimatedInView = false;
+            counters.forEach(resetCounter);
+        });
+    }, { threshold: 0.35 });
+
+    observer.observe(section);
+}
+
+/*=============== WORKS CAROUSEL ===============*/
+function initWorksCarousel() {
+    const carousel = document.getElementById('worksCarousel');
+    if (!carousel) return;
+
+    const track = carousel.querySelector('.works-carousel__track');
+    const slides = Array.from(carousel.querySelectorAll('.works-carousel__slide'));
+    const dotsContainer = carousel.querySelector('.works-carousel__dots');
+    if (!track || !slides.length || !dotsContainer) return;
+
+    let currentIndex = 0;
+    let autoTimer = null;
+    let touchStartX = 0;
+    let touchEndX = 0;
+    let perView = window.matchMedia('(min-width: 769px)').matches ? 2 : 1;
+    let maxIndex = Math.max(0, slides.length - perView);
+
+    const updatePerView = () => {
+        perView = window.matchMedia('(min-width: 769px)').matches ? 2 : 1;
+        maxIndex = Math.max(0, slides.length - perView);
+    };
+
+    const goToSlide = (index) => {
+        updatePerView();
+        if (index > maxIndex) {
+            currentIndex = 0;
+        } else if (index < 0) {
+            currentIndex = maxIndex;
+        } else {
+            currentIndex = index;
+        }
+        // Use pixel-based translate to avoid subpixel drift on mobile.
+        const stepWidth = carousel.clientWidth / perView;
+        const offsetPx = stepWidth * currentIndex;
+        track.style.transform = `translateX(-${offsetPx}px)`;
+        const dots = dotsContainer.querySelectorAll('.works-carousel__dot');
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
+    };
+
+    slides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'works-carousel__dot';
+        dot.type = 'button';
+        dot.setAttribute('aria-label', `Ir al trabajo ${i + 1}`);
+        dot.addEventListener('click', () => {
+            goToSlide(i);
+            restartAuto();
+        });
+        dotsContainer.appendChild(dot);
+    });
+
+    function startAuto() {
+        autoTimer = window.setInterval(() => {
+            goToSlide(currentIndex + 1);
+        }, 3600);
+    }
+
+    function stopAuto() {
+        if (autoTimer) {
+            window.clearInterval(autoTimer);
+            autoTimer = null;
+        }
+    }
+
+    function restartAuto() {
+        stopAuto();
+        startAuto();
+    }
+
+    carousel.addEventListener('mouseenter', stopAuto);
+    carousel.addEventListener('mouseleave', startAuto);
+
+    carousel.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].clientX;
+    }, { passive: true });
+
+    carousel.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].clientX;
+        const deltaX = touchStartX - touchEndX;
+
+        if (Math.abs(deltaX) > 40) {
+            goToSlide(deltaX > 0 ? currentIndex + 1 : currentIndex - 1);
+            restartAuto();
+        }
+    }, { passive: true });
+
+    window.addEventListener('resize', () => {
+        goToSlide(currentIndex);
+    }, { passive: true });
+
+    goToSlide(0);
+    startAuto();
+}
+
 /*=============== INITIALIZE WHEN DOM IS LOADED ===============*/
 document.addEventListener('DOMContentLoaded', function() {
+    initAboutCounters();
+    initWorksCarousel();
+
     // Initialize ScrollReveal
     if (typeof ScrollReveal !== 'undefined') {
         const sr = ScrollReveal({
@@ -468,21 +725,62 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 /*=============== WHATSAPP FLOATING BUTTON ===============*/
-const whatsappFab = document.getElementById('whatsappFab');
 const whatsappMenu = document.getElementById('whatsappMenu');
+const whatsappFabTriggers = () => document.querySelectorAll('#whatsappFab, #whatsappFabScroll');
 
-if (whatsappFab && whatsappMenu) {
-    whatsappFab.addEventListener('click', function(e) {
+function applyWhatsAppBubbleText() {
+    const scrollFab = document.getElementById('whatsappFabScroll');
+    if (!scrollFab) return;
+    scrollFab.setAttribute('data-bubble-text', 'Contáctanos');
+}
+
+function dismissWhatsAppHintBubble() {
+    const scrollFab = document.getElementById('whatsappFabScroll');
+    if (scrollFab) scrollFab.classList.add('whatsapp-fab--hint-dismissed');
+}
+
+function showWhatsAppHintBubble() {
+    const scrollFab = document.getElementById('whatsappFabScroll');
+    if (scrollFab) scrollFab.classList.remove('whatsapp-fab--hint-dismissed');
+}
+
+if (whatsappMenu) {
+    applyWhatsAppBubbleText();
+
+    function handleWhatsAppFabClick(e) {
         e.stopPropagation();
-        whatsappMenu.toggleAttribute('hidden');
-        whatsappFab.setAttribute('aria-expanded', whatsappMenu.hasAttribute('hidden') ? 'false' : 'true');
+        dismissWhatsAppHintBubble();
+        const clickedFab = e.currentTarget;
+        const isScrollFab = clickedFab && clickedFab.id === 'whatsappFabScroll';
+        const isMenuClosed = whatsappMenu.hasAttribute('hidden');
+
+        // Posicionar ANTES de abrir para que aparezca en el lugar correcto al instante.
+        if (isMenuClosed) {
+            setWhatsAppMenuAnchor(isScrollFab ? 'scroll' : 'header');
+            whatsappMenu.removeAttribute('hidden');
+            whatsappFabTriggers().forEach(fab => fab.setAttribute('aria-expanded', 'true'));
+            return;
+        }
+
+        // Cerrar menú si ya estaba abierto.
+        whatsappMenu.setAttribute('hidden', '');
+        whatsappFabTriggers().forEach(fab => fab.setAttribute('aria-expanded', 'false'));
+        setWhatsAppMenuAnchor('header');
+        showWhatsAppHintBubble();
+    }
+
+    whatsappFabTriggers().forEach(fab => {
+        fab.addEventListener('click', handleWhatsAppFabClick);
     });
     
     // Close menu when clicking outside
     document.addEventListener('click', function(e) {
-        if (!whatsappMenu.contains(e.target) && e.target !== whatsappFab) {
+        const clickedOnAnyFab = Array.from(whatsappFabTriggers()).some(fab => fab.contains(e.target));
+        if (!whatsappMenu.contains(e.target) && !clickedOnAnyFab) {
             whatsappMenu.setAttribute('hidden', '');
-            whatsappFab.setAttribute('aria-expanded', 'false');
+            whatsappFabTriggers().forEach(fab => fab.setAttribute('aria-expanded', 'false'));
+            setWhatsAppMenuAnchor('header');
+            showWhatsAppHintBubble();
         }
     });
     
@@ -504,3 +802,35 @@ faqItems.forEach(item => {
         });
     }
 });
+
+/*=============== SCROLL REVEAL NATIVO ===============*/
+(function() {
+    const revealElements = document.querySelectorAll(
+        '.service-card, .service-preview-card, .why-choose__item, ' +
+        '.process__step, .product-list, .stat, .contact__item, ' +
+        '.faq__item, .about__image, .section__header'
+    );
+
+    if (!revealElements.length) return;
+
+    // Agregar clase reveal a los elementos
+    revealElements.forEach((el, i) => {
+        el.classList.add('reveal');
+        // Delay escalonado para grupos de elementos
+        el.style.transitionDelay = (i % 4) * 0.08 + 's';
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -30px 0px'
+    });
+
+    revealElements.forEach(el => observer.observe(el));
+})();
