@@ -93,6 +93,10 @@
   4. HERO SECTION (INDEX) — Mejoras para móvil
 --------------------------------------------------------------*/
 @media screen and (max-width: 768px) {
+    .hero__media-gallery {
+        display: none !important;
+    }
+
     .hero-header {
         min-height: 100svh; /* small viewport height — desactiva barra browser */
     }
@@ -107,7 +111,7 @@
 
     .hero__content {
         padding: 0;
-        margin-top: var(--spacing-8);
+        margin-top: var(--spacing-12);
         text-align: center;
         margin-left: auto;
         margin-right: auto;
@@ -152,7 +156,7 @@
 
 @media screen and (max-width: 480px) {
     .hero__container {
-        padding-top: var(--spacing-8);
+        padding-top: var(--spacing-10);
     }
 
     .hero__title {
