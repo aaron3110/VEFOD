@@ -1624,6 +1624,19 @@ button {
     margin: var(--spacing-6) auto 0;
 }
 
+/* Encabezados estilo landing (sin línea bajo el título, texto tipo oración) */
+.section__header--landing .section__title {
+    display: block;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    letter-spacing: -0.02em;
+}
+
+.section__header--landing .section__title::after {
+    display: none;
+}
+
 /*=============== SERVICES SECTION ===============*/
 .services {
     background-color: var(--light-blue);
@@ -3549,6 +3562,11 @@ button {
         padding: var(--spacing-24) 0;
         min-height: 80vh;
     }
+
+    .portfolio-stack {
+        padding: var(--spacing-24) 0;
+        min-height: unset;
+    }
     
     .why-choose {
         padding: var(--spacing-24) 0;
@@ -3625,7 +3643,13 @@ button {
     }
     
     /* Apilar tarjetas de servicios verticalmente solo en móviles */
-    .services-preview__grid {
+    .services-preview__grid:not(.services-preview__grid--four) {
+        grid-template-columns: 1fr !important;
+        gap: var(--spacing-8);
+        margin-bottom: var(--spacing-12);
+    }
+
+    .services-preview__grid--four {
         grid-template-columns: 1fr !important;
         gap: var(--spacing-8);
         margin-bottom: var(--spacing-12);
@@ -3634,6 +3658,11 @@ button {
     .service-preview-card:first-child,
     .service-preview-card:last-child {
         grid-column: 1 !important;
+    }
+
+    .services-preview__grid--four .service-preview-card:first-child,
+    .services-preview__grid--four .service-preview-card:last-child {
+        grid-column: auto !important;
     }
     
     .service-preview-card {
@@ -4063,7 +4092,7 @@ button {
 
 /*=============== SERVICES PREVIEW ===============*/
 .services-preview {
-    background: var(--gray-50);
+    background: var(--white);
     padding: var(--spacing-20) 0;
 }
 
@@ -4074,12 +4103,22 @@ button {
     margin-bottom: var(--spacing-12);
 }
 
+.services-preview__grid--four {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin-bottom: var(--spacing-8);
+}
+
 .service-preview-card:first-child {
     grid-column: 1;
 }
 
 .service-preview-card:last-child {
     grid-column: 3;
+}
+
+.services-preview__grid--four .service-preview-card:first-child,
+.services-preview__grid--four .service-preview-card:last-child {
+    grid-column: auto;
 }
 
 .service-preview-card {
@@ -4095,6 +4134,100 @@ button {
 .service-preview-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-xl);
+}
+
+.service-preview-card--media {
+    padding: 0;
+    overflow: hidden;
+    text-align: left;
+    border-radius: var(--radius-2xl);
+    box-shadow: 0 8px 24px rgba(0, 57, 94, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+    border-color: rgba(0, 57, 94, 0.06);
+}
+
+.service-preview-card--media:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(0, 57, 94, 0.12), 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.service-preview-card__media {
+    overflow: hidden;
+    border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
+}
+
+.service-preview-card__img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.service-preview-card__body {
+    padding: var(--spacing-5) var(--spacing-6) var(--spacing-6);
+}
+
+.service-preview-card--media .service-preview-card__title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-bold);
+    margin-bottom: var(--spacing-3);
+    color: var(--primary-color);
+    text-align: left;
+}
+
+.service-preview-card--media .service-preview-card__description {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--spacing-3);
+    margin-bottom: 0;
+    font-size: var(--font-size-sm);
+    color: var(--gray-600);
+    line-height: 1.65;
+}
+
+.service-preview-card__description span {
+    flex: 1;
+    min-width: 0;
+}
+
+.service-preview-card__chevron {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    margin-top: 2px;
+    color: var(--accent-color);
+    font-size: var(--font-size-xl);
+    text-decoration: none;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.service-preview-card__chevron:hover {
+    color: var(--secondary-color);
+    transform: translateX(3px);
+}
+
+.services-preview__foot {
+    text-align: center;
+    margin: 0;
+}
+
+.services-preview__foot-link {
+    font-family: var(--font-secondary);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-semibold);
+    color: var(--secondary-color);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    transition: color 0.2s ease;
+}
+
+.services-preview__foot-link:hover {
+    color: var(--accent-color);
 }
 
 .service-preview-card__icon {
@@ -4142,6 +4275,142 @@ button {
 
 .services-preview__cta {
     text-align: center;
+}
+
+/* Botón WhatsApp destacado (azul brillante) */
+.btn--whatsapp-cta {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    border: none;
+    padding: var(--spacing-4) var(--spacing-10);
+    font-weight: var(--font-bold);
+    border-radius: var(--radius-xl);
+    box-shadow: 0 8px 24px rgba(0, 124, 171, 0.35);
+}
+
+.btn--whatsapp-cta:hover {
+    background-color: var(--accent-hover);
+    color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(0, 124, 171, 0.45);
+}
+
+.btn--whatsapp-cta i {
+    font-size: var(--font-size-xl);
+}
+
+/*=============== PORTFOLIO + CTA SUPERPOSICIÓN ===============*/
+.portfolio-stack.section {
+    overflow: visible;
+}
+
+.portfolio-stack {
+    background: var(--white);
+    padding: var(--spacing-20) 0 var(--spacing-24);
+}
+
+.portfolio-stack__wrap {
+    position: relative;
+    padding-bottom: clamp(8rem, 18vw, 13rem);
+    overflow: visible;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--spacing-4);
+}
+
+.portfolio-grid__item {
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0, 57, 94, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.portfolio-grid__img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+}
+
+.portfolio-cta {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    margin-top: clamp(-5rem, -9vw, -3.5rem);
+    padding: 0 var(--spacing-2);
+}
+
+.portfolio-cta__box {
+    width: 100%;
+    max-width: 1180px;
+}
+
+.portfolio-cta__box--glass {
+    background: rgba(255, 255, 255, 0.72);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.95);
+    border-radius: 2rem;
+    padding: var(--spacing-10) var(--spacing-8) var(--spacing-8);
+    box-shadow: 0 20px 50px rgba(0, 57, 94, 0.12), 0 4px 16px rgba(0, 0, 0, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.portfolio-cta__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 54%);
+    align-items: end;
+    gap: var(--spacing-4) var(--spacing-6);
+}
+
+.portfolio-cta__copy {
+    text-align: center;
+    padding-bottom: var(--spacing-2);
+    min-width: 0;
+}
+
+.portfolio-cta__visual {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: calc(-1 * var(--spacing-6));
+    align-self: center;
+    pointer-events: none;
+}
+
+.portfolio-cta__phone-img {
+    width: min(100%, 540px);
+    max-width: min(540px, 58vw);
+    height: auto;
+    max-height: min(520px, 62vh);
+    object-fit: contain;
+    object-position: bottom center;
+    display: block;
+    transform: translateY(-18px);
+    filter: drop-shadow(0 12px 28px rgba(0, 57, 94, 0.15));
+}
+
+.portfolio-cta__title {
+    font-family: var(--font-family);
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-bold);
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-4);
+    line-height: 1.25;
+}
+
+.portfolio-cta__text {
+    font-family: var(--font-secondary);
+    font-size: var(--font-size-base);
+    color: var(--gray-600);
+    max-width: 26rem;
+    margin: 0 auto var(--spacing-8);
+    line-height: 1.65;
 }
 
 /*=============== WHY CHOOSE US ===============*/

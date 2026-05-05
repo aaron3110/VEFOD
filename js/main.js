@@ -47,21 +47,7 @@ function updateScrollWhatsAppFabVisibility() {
     const whatsappMenu = document.getElementById('whatsappMenu');
     if (!scrollFab) return;
 
-    const isMobile = window.matchMedia('(max-width: 768px)').matches;
-    if (!isMobile) {
-        scrollFab.classList.remove('is-visible');
-        scrollFab.classList.remove('whatsapp-fab--hint-dismissed');
-        document.body.classList.remove('whatsapp-menu-near-scroll-fab');
-        if (whatsappMenu && !whatsappMenu.hasAttribute('hidden')) {
-            setWhatsAppMenuAnchor('header');
-        }
-        return;
-    }
-
     const triggerSection = document.querySelector('.hero-header, .page-hero');
-    const headerEl = document.getElementById('header');
-    const headerHeight = headerEl ? headerEl.offsetHeight : 80;
-    const scrollY = window.scrollY || window.pageYOffset;
 
     if (!triggerSection) {
         scrollFab.classList.remove('is-visible');
