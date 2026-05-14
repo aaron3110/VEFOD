@@ -512,7 +512,7 @@ if (currentYearElement) {
 
 /*=============== ABOUT COUNTERS ===============*/
 function initAboutCounters() {
-    const counters = document.querySelectorAll('.about__stats .stat__number[data-target]');
+    const counters = document.querySelectorAll('.about__stats .stat__number[data-target], .hero-stats .hero-stat__number[data-target]');
     if (!counters.length) return;
 
     const animateCounter = (counter) => {
@@ -545,7 +545,7 @@ function initAboutCounters() {
         counter.textContent = `${prefix}0${suffix}`;
     };
 
-    const section = document.querySelector('.about');
+    const section = document.querySelector('.features-bar, .about');
     if (!section) return;
 
     let hasAnimatedInView = false;

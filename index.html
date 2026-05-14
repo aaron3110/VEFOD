@@ -82,221 +82,298 @@
             </div>
         </header>
 
-        <!-- Hero Content -->
+        <!-- Hero Content (layout 2 columnas: texto + imagen) -->
         <div class="container hero__container">
-            <div class="hero__content">
-                <h1 class="hero__title">IMPRESIÓN Y ROTULACIÓN PROFESIONAL EN COSTA RICA</h1>
-                <p class="hero__description">LONAS, VINIL, RÓTULOS COMERCIALES, STICKERS CON CALIDAD PROFESIONAL Y ENTREGA RÁPIDA.</p>
-                <div class="hero__buttons">
-                    <a href="https://wa.me/50661025947/?text=Hola%20VEFOD,%20quiero%20cotizar." target="_blank" rel="noopener" class="btn btn--primary">
-                        <span>Cotizar por WhatsApp</span>
-                        <i class="ri-whatsapp-line"></i>
-                    </a>
-                    <a href="https://www.google.com/maps/place/Vefod/@9.8967013,-84.0845157,13z/data=!4m6!3m5!1s0x8fa0e3798a468233:0x4bdc61453148bd44!8m2!3d9.8967013!4d-84.0433164!16s%2Fg%2F11w2h8wh1_?entry=ttu" target="_blank" rel="noopener" class="btn btn--outline">
-                        <span>Ver Ubicación</span>
-                        <i class="ri-map-pin-line"></i>
-                    </a>
+            <div class="hero__grid">
+                <div class="hero__content hero__content--left">
+                    <h1 class="hero__title">IMPRESIÓN <span class="hero__title-accent">Y ROTULACIÓN</span> PROFESIONAL EN COSTA RICA</h1>
+                    <span class="hero__accent-bar" aria-hidden="true"></span>
+                    <p class="hero__description">Lonas, vinil, rótulos comerciales, stickers con calidad profesional y entrega rápida.</p>
+                    <div class="hero__buttons">
+                        <a href="https://wa.me/50661025947/?text=Hola%20VEFOD,%20quiero%20cotizar." target="_blank" rel="noopener" class="btn btn--whatsapp-cta btn--large">
+                            <i class="ri-whatsapp-line"></i>
+                            <span>Cotizar por WhatsApp</span>
+                        </a>
+                        <a href="https://www.google.com/maps/place/Vefod/@9.8967013,-84.0845157,13z/data=!4m6!3m5!1s0x8fa0e3798a468233:0x4bdc61453148bd44!8m2!3d9.8967013!4d-84.0433164!16s%2Fg%2F11w2h8wh1_?entry=ttu" target="_blank" rel="noopener" class="btn btn--hero-outline btn--large">
+                            <i class="ri-map-pin-line"></i>
+                            <span>Ver Ubicación</span>
+                        </a>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <!-- Hero Media Gallery - Freepik Style -->
-        <div class="hero__media-gallery">
-            <!-- Main Central Video/Image -->
-            <div class="hero__media-main">
-                <video class="hero__main-video" autoplay muted loop playsinline webkit-playsinline>
-                    <source src="img/video_principal.mp4" type="video/mp4">
-                    Tu navegador no soporta videos HTML5.
-                </video>
-                <!-- Fallback image if video doesn't load -->
-                <img src="img/img_principal.png" alt="VEFOD - Servicios Profesionales" class="hero__main-img">
-            </div>
-            
-            
-            <div class="hero__media-item hero__media-item--top-right">
-                <img src="img/imagen_roler_up.png" alt="VEFOD - Recibos" class="hero__media-img">
-            </div>
-            
-            <div class="hero__media-item hero__media-item--bottom-left">
-                <img src="img/imagen_recibo.png" alt="VEFOD - Roller Up" class="hero__media-img">
-            </div>
-            
-            <div class="hero__media-item hero__media-item--bottom-right">
-                <img src="img/tarjeta_presentación.png" alt="VEFOD - Productos" class="hero__media-img">
+                <div class="hero__visual">
+                    <img src="img/portfolio/imagen-principal.png" alt="VEFOD - Servicios profesionales de impresión y rotulación" class="hero__visual-img" width="1000" height="780">
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Main Content -->
     <main>
-        <!-- About Us Section -->
-        <section class="about section" id="about">
+        <!-- Features Bar (garantías) -->
+        <section class="features-bar" aria-label="Por qué elegirnos">
+            <div class="container">
+                <div class="features-bar__grid">
+                    <div class="feature-item">
+                        <div class="feature-item__icon"><i class="ri-medal-2-line"></i></div>
+                        <div class="feature-item__content">
+                            <h3 class="feature-item__title">Calidad Garantizada</h3>
+                            <p class="feature-item__text">Materiales de primera y acabados profesionales.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-item__icon"><i class="ri-time-line"></i></div>
+                        <div class="feature-item__content">
+                            <h3 class="feature-item__title">Entrega Rápida</h3>
+                            <p class="feature-item__text">Cumplimos tus tiempos de entrega siempre.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-item__icon"><i class="ri-customer-service-2-line"></i></div>
+                        <div class="feature-item__content">
+                            <h3 class="feature-item__title">Atención Personalizada</h3>
+                            <p class="feature-item__text">Te asesoramos en cada paso de tu proyecto.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-item__icon"><i class="ri-shield-check-line"></i></div>
+                        <div class="feature-item__content">
+                            <h3 class="feature-item__title">Experiencia Local</h3>
+                            <p class="feature-item__text">Más de 8 años brindando soluciones visuales en Costa Rica.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <i class="ri-file-list-3-line hero-stat__icon"></i>
+                        <div class="hero-stat__body">
+                            <span class="hero-stat__number" data-target="250" data-prefix="+">+250</span>
+                            <span class="hero-stat__label">Proyectos<br>Completados</span>
+                        </div>
+                    </div>
+                    <div class="hero-stat">
+                        <i class="ri-group-line hero-stat__icon"></i>
+                        <div class="hero-stat__body">
+                            <span class="hero-stat__number" data-target="180" data-prefix="+">+180</span>
+                            <span class="hero-stat__label">Clientes<br>Satisfechos</span>
+                        </div>
+                    </div>
+                    <div class="hero-stat">
+                        <i class="ri-award-line hero-stat__icon"></i>
+                        <div class="hero-stat__body">
+                            <span class="hero-stat__number" data-target="8" data-prefix="+">+8</span>
+                            <span class="hero-stat__label">Años de<br>Experiencia</span>
+                        </div>
+                    </div>
+                    <div class="hero-stat">
+                        <i class="ri-map-pin-2-line hero-stat__icon"></i>
+                        <div class="hero-stat__body">
+                            <span class="hero-stat__number hero-stat__number--text">Costa Rica</span>
+                            <span class="hero-stat__label">Servicio en todo<br>el territorio nacional</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section (texto izquierda + imagen derecha) -->
+        <section class="about about--split section" id="about">
             <div class="container">
                 <div class="about__content">
                     <div class="about__text">
-                        <h2 class="section__title">¿QUIÉNES SOMOS?</h2>
+                        <span class="about__eyebrow">SOBRE NOSOTROS</span>
+                        <h2 class="section__title">¿Quiénes Somos?</h2>
+                        <span class="about__divider" aria-hidden="true"></span>
                         <p class="about__description">
-                            VEFOD Media & Diseño es una empresa especializada en soluciones integrales de comunicación visual. 
-                            Con más de x años de experiencia en el mercado costarricense, nos hemos consolidado como líderes 
-                            en impresión de gran formato, rotulación y estructuras publicitarias.
+                            En <strong>VEFOD Media &amp; Diseño</strong> somos una empresa especializada en soluciones integrales
+                            de comunicación visual. Desde 2017 en el mercado costarricense, nos hemos consolidado
+                            como una opción confiable en impresión de gran formato, rotulación y estructuras publicitarias.
                         </p>
                         <p class="about__description">
-                            Nuestro compromiso es brindar soluciones creativas y de alta calidad que impulsen el crecimiento 
-                            de nuestros clientes, con un equipo de profesionales altamente 
-                            capacitados en diseño gráfico y producción.
+                            Nuestro enfoque es ayudar a negocios y emprendimientos a destacar, ofreciendo soluciones creativas,
+                            materiales de alta calidad y una ejecución profesional en cada proyecto.
                         </p>
-                        <div class="about__stats">
-                            <div class="stat">
-                                <h3 class="stat__number" data-target="250" data-prefix="+">0</h3>
-                                <p class="stat__label">Proyectos Completados</p>
-                            </div>
-                            <div class="stat">
-                                <h3 class="stat__number" data-target="180" data-prefix="+">0</h3>
-                                <p class="stat__label">Clientes Satisfechos</p>
-                            </div>
-                            <div class="stat">
-                                <h3 class="stat__number" data-target="8" data-prefix="+">0</h3>
-                                <p class="stat__label">Años de Experiencia</p>
-                            </div>
-                        </div>
+                        <p class="about__description">
+                            Contamos con un equipo capacitado en diseño gráfico y producción, comprometido con brindar
+                            resultados que impulsen la imagen y crecimiento de nuestros clientes.
+                        </p>
                     </div>
                     <div class="about__image">
-                        <img src="img/img_principal.png" alt="VEFOD Media & Diseño" class="about__img">
+                        <img src="img/img_principal.png" alt="VEFOD Media & Diseño - Soluciones de rotulación" class="about__img" width="600" height="540" loading="lazy">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Servicios (cards con imagen, estilo landing) -->
+        <!-- Servicios (8 cards con imagen + ícono superpuesto) -->
         <section class="services-preview section" id="services-preview">
             <div class="container">
                 <div class="section__header section__header--landing">
-                    <h2 class="section__title">Nuestros Servicios de Impresión y Rotulación</h2>
-                    <p class="section__subtitle">Soluciones visuales profesionales para marcas, comercios y vehículos en Costa Rica.</p>
+                    <span class="section__eyebrow">NUESTROS SERVICIOS</span>
+                    <h2 class="section__title">Soluciones profesionales para tu marca y negocio</h2>
+                    <p class="section__subtitle">Brindamos soluciones completas en comunicación visual para fortalecer tu imagen y destacar tu negocio.</p>
                 </div>
 
-                <div class="services-preview__grid services-preview__grid--four">
-                    <article class="service-preview-card service-preview-card--media">
-                        <div class="service-preview-card__media">
-                            <img src="img/img_principal.png" alt="Lonas publicitarias VEFOD" class="service-preview-card__img" width="400" height="240" loading="lazy">
+                <div class="services-grid">
+                    <article class="service-card-v2">
+                        <div class="service-card-v2__media">
+                            <img src="img/portfolio/lona-exterior.jpg" alt="Impresión en lona VEFOD" class="service-card-v2__img" width="400" height="260" loading="lazy">
+                            <div class="service-card-v2__icon"><i class="ri-image-2-line"></i></div>
                         </div>
-                        <div class="service-preview-card__body">
-                            <h3 class="service-preview-card__title">Lonas Publicitarias</h3>
-                            <p class="service-preview-card__description">
-                                <span>Impacto en gran formato para fachadas, eventos y campañas con acabado profesional.</span>
-                                <a href="servicios.html" class="service-preview-card__chevron" aria-label="Ver lonas publicitarias"><i class="ri-arrow-right-s-line"></i></a>
-                            </p>
-                        </div>
-                    </article>
-
-                    <article class="service-preview-card service-preview-card--media">
-                        <div class="service-preview-card__media">
-                            <img src="img/imagen_roler_up.png" alt="Vinil adhesivo VEFOD" class="service-preview-card__img" width="400" height="240" loading="lazy">
-                        </div>
-                        <div class="service-preview-card__body">
-                            <h3 class="service-preview-card__title">Vinil Adhesivo</h3>
-                            <p class="service-preview-card__description">
-                                <span>Rotulación en vidrios, vehículos y superficies con adhesivos de alta duración.</span>
-                                <a href="servicios.html" class="service-preview-card__chevron" aria-label="Ver vinil adhesivo"><i class="ri-arrow-right-s-line"></i></a>
-                            </p>
+                        <div class="service-card-v2__body">
+                            <h3 class="service-card-v2__title">Impresión en Lona</h3>
+                            <p class="service-card-v2__text">Banners publicitarios, eventos, promociones y fachadas.</p>
+                            <a href="servicios.html" class="service-card-v2__link">Ver más <i class="ri-arrow-right-line"></i></a>
                         </div>
                     </article>
 
-                    <article class="service-preview-card service-preview-card--media">
-                        <div class="service-preview-card__media">
-                            <img src="img/imagen_recibo.png" alt="Rótulos comerciales VEFOD" class="service-preview-card__img" width="400" height="240" loading="lazy">
+                    <article class="service-card-v2">
+                        <div class="service-card-v2__media">
+                            <img src="img/portfolio/impresion-gran-formato.jpg" alt="Corte en vinil VEFOD" class="service-card-v2__img" width="400" height="260" loading="lazy">
+                            <div class="service-card-v2__icon"><i class="ri-scissors-cut-line"></i></div>
                         </div>
-                        <div class="service-preview-card__body">
-                            <h3 class="service-preview-card__title">Rótulos Comerciales</h3>
-                            <p class="service-preview-card__description">
-                                <span>Letras, luminosos y señalética para que tu negocio se vea claro desde la calle.</span>
-                                <a href="servicios.html" class="service-preview-card__chevron" aria-label="Ver rótulos comerciales"><i class="ri-arrow-right-s-line"></i></a>
-                            </p>
+                        <div class="service-card-v2__body">
+                            <h3 class="service-card-v2__title">Corte en Vinil</h3>
+                            <p class="service-card-v2__text">Decoración de vidrieras, rótulos y rotulación comercial.</p>
+                            <a href="servicios.html" class="service-card-v2__link">Ver más <i class="ri-arrow-right-line"></i></a>
                         </div>
                     </article>
 
-                    <article class="service-preview-card service-preview-card--media">
-                        <div class="service-preview-card__media">
-                            <img src="img/tarjeta_presentación.png" alt="Stickers personalizados VEFOD" class="service-preview-card__img" width="400" height="240" loading="lazy">
+                    <article class="service-card-v2">
+                        <div class="service-card-v2__media">
+                            <img src="img/portfolio/rotulacion-fachada.jpg" alt="Rotulación de negocios VEFOD" class="service-card-v2__img" width="400" height="260" loading="lazy">
+                            <div class="service-card-v2__icon"><i class="ri-store-2-line"></i></div>
                         </div>
-                        <div class="service-preview-card__body">
-                            <h3 class="service-preview-card__title">Stickers Personalizados</h3>
-                            <p class="service-preview-card__description">
-                                <span>Etiquetas y adhesivos a medida para productos, promociones y marca.</span>
-                                <a href="servicios.html" class="service-preview-card__chevron" aria-label="Ver stickers personalizados"><i class="ri-arrow-right-s-line"></i></a>
-                            </p>
+                        <div class="service-card-v2__body">
+                            <h3 class="service-card-v2__title">Rotulación de Negocios</h3>
+                            <p class="service-card-v2__text">Diseño e instalación de publicidad para locales.</p>
+                            <a href="servicios.html" class="service-card-v2__link">Ver más <i class="ri-arrow-right-line"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="service-card-v2">
+                        <div class="service-card-v2__media">
+                            <img src="img/tarjeta_presentación.png" alt="Stickers personalizados VEFOD" class="service-card-v2__img" width="400" height="260" loading="lazy">
+                            <div class="service-card-v2__icon"><i class="ri-sticky-note-line"></i></div>
+                        </div>
+                        <div class="service-card-v2__body">
+                            <h3 class="service-card-v2__title">Stickers Personalizados</h3>
+                            <p class="service-card-v2__text">Stickers personalizados para marcas y uso comercial.</p>
+                            <a href="servicios.html" class="service-card-v2__link">Ver más <i class="ri-arrow-right-line"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="service-card-v2">
+                        <div class="service-card-v2__media">
+                            <img src="img/portfolio/vehiculo-marca.jpg" alt="Rotulación vehicular VEFOD" class="service-card-v2__img" width="400" height="260" loading="lazy">
+                            <div class="service-card-v2__icon"><i class="ri-car-line"></i></div>
+                        </div>
+                        <div class="service-card-v2__body">
+                            <h3 class="service-card-v2__title">Rotulación Vehicular</h3>
+                            <p class="service-card-v2__text">Rotulación en vehículos comerciales y particulares.</p>
+                            <a href="servicios.html" class="service-card-v2__link">Ver más <i class="ri-arrow-right-line"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="service-card-v2">
+                        <div class="service-card-v2__media">
+                            <img src="img/imagen_recibo.png" alt="Impresión comercial VEFOD" class="service-card-v2__img" width="400" height="260" loading="lazy">
+                            <div class="service-card-v2__icon"><i class="ri-book-open-line"></i></div>
+                        </div>
+                        <div class="service-card-v2__body">
+                            <h3 class="service-card-v2__title">Impresión Comercial</h3>
+                            <p class="service-card-v2__text">Tarjetas, volantes, catálogos y más. Impresos con la mejor calidad.</p>
+                            <a href="servicios.html" class="service-card-v2__link">Ver más <i class="ri-arrow-right-line"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="service-card-v2">
+                        <div class="service-card-v2__media">
+                            <img src="img/portfolio/corporativo-interior.jpg" alt="Murales y decoración VEFOD" class="service-card-v2__img" width="400" height="260" loading="lazy">
+                            <div class="service-card-v2__icon"><i class="ri-gallery-line"></i></div>
+                        </div>
+                        <div class="service-card-v2__body">
+                            <h3 class="service-card-v2__title">Murales y Decoración</h3>
+                            <p class="service-card-v2__text">Diseños en gran formato para interiores, oficinas y comercios.</p>
+                            <a href="servicios.html" class="service-card-v2__link">Ver más <i class="ri-arrow-right-line"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="service-card-v2">
+                        <div class="service-card-v2__media">
+                            <img src="img/imagen_roler_up.png" alt="Displays y exhibidores VEFOD" class="service-card-v2__img" width="400" height="260" loading="lazy">
+                            <div class="service-card-v2__icon"><i class="ri-tv-2-line"></i></div>
+                        </div>
+                        <div class="service-card-v2__body">
+                            <h3 class="service-card-v2__title">Displays y Exhibidores</h3>
+                            <p class="service-card-v2__text">Roll ups, banners, stands y exhibidores personalizados.</p>
+                            <a href="servicios.html" class="service-card-v2__link">Ver más <i class="ri-arrow-right-line"></i></a>
                         </div>
                     </article>
                 </div>
 
-                <p class="services-preview__foot">
-                    <a href="servicios.html" class="services-preview__foot-link">Ver todos los servicios <i class="ri-arrow-right-line"></i></a>
-                </p>
+                <div class="services-preview__cta">
+                    <a href="servicios.html" class="btn btn--primary btn--large">
+                        <span>Ver Todos los Servicios</span>
+                        <i class="ri-arrow-right-line"></i>
+                    </a>
+                </div>
             </div>
         </section>
 
-        <!-- Portfolio + CTA superpuesto -->
-        <section class="portfolio-stack section" id="trabajos">
+        <!-- Así trabajamos contigo -->
+        <section class="process section" id="proceso">
             <div class="container">
                 <div class="section__header section__header--landing">
-                    <h2 class="section__title">Ejemplos de Nuestros Trabajos</h2>
-                    <p class="section__subtitle">Algunos proyectos y referencias del tipo de trabajos que realizamos para negocios y marcas.</p>
+                    <h2 class="section__title">Así trabajamos contigo</h2>
                 </div>
 
-                <div class="portfolio-stack__wrap">
-                    <div class="portfolio-grid" role="list">
-                        <div class="portfolio-grid__item" role="listitem">
-                            <img src="img/imagen_recibo.png" alt="Trabajo de rótulos VEFOD" class="portfolio-grid__img" width="600" height="450" loading="lazy">
-                        </div>
-                        <div class="portfolio-grid__item" role="listitem">
-                            <img src="img/img_principal.png" alt="Lonas y gran formato VEFOD" class="portfolio-grid__img" width="600" height="450" loading="lazy">
-                        </div>
-                        <div class="portfolio-grid__item" role="listitem">
-                            <img src="img/imagen_roler_up.png" alt="Exhibición roller up VEFOD" class="portfolio-grid__img" width="600" height="450" loading="lazy">
-                        </div>
-                        <div class="portfolio-grid__item" role="listitem">
-                            <img src="img/tarjeta_presentación.png" alt="Material impreso VEFOD" class="portfolio-grid__img" width="600" height="450" loading="lazy">
-                        </div>
-                        <div class="portfolio-grid__item" role="listitem">
-                            <img src="img/portfolio/rotulacion-fachada.jpg" alt="Referencia: rotulación y material gráfico en gran formato" class="portfolio-grid__img" width="600" height="450" loading="lazy">
-                        </div>
-                        <div class="portfolio-grid__item" role="listitem">
-                            <img src="img/portfolio/lona-exterior.jpg" alt="Referencia: publicidad exterior y lonas urbanas" class="portfolio-grid__img" width="600" height="450" loading="lazy">
-                        </div>
-                        <div class="portfolio-grid__item" role="listitem">
-                            <img src="img/portfolio/vehiculo-marca.jpg" alt="Referencia: rotulación vehicular y marca en movimiento" class="portfolio-grid__img" width="600" height="450" loading="lazy">
-                        </div>
-                        <div class="portfolio-grid__item" role="listitem">
-                            <img src="img/portfolio/vidrieras-comercio.jpg" alt="Referencia: vidrieras y retail con comunicación visual" class="portfolio-grid__img" width="600" height="450" loading="lazy">
-                        </div>
-                        <div class="portfolio-grid__item" role="listitem">
-                            <img src="img/portfolio/impresion-gran-formato.jpg" alt="Referencia: ambiente de impresión y producción gráfica" class="portfolio-grid__img" width="600" height="450" loading="lazy">
-                        </div>
-                        <div class="portfolio-grid__item" role="listitem">
-                            <img src="img/portfolio/stand-exhibicion.jpg" alt="Referencia: stands y exhibición tipo feria o punto de venta" class="portfolio-grid__img" width="600" height="450" loading="lazy">
-                        </div>
-                        <div class="portfolio-grid__item" role="listitem">
-                            <img src="img/portfolio/corporativo-interior.jpg" alt="Referencia: señalética y branding en espacios corporativos" class="portfolio-grid__img" width="600" height="450" loading="lazy">
-                        </div>
-                        <div class="portfolio-grid__item" role="listitem">
-                            <img src="img/portfolio/edificio-publicidad.jpg" alt="Referencia: fachadas y comunicación en entorno urbano" class="portfolio-grid__img" width="600" height="450" loading="lazy">
-                        </div>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="process-step__number">1</div>
+                        <div class="process-step__icon"><i class="ri-whatsapp-line"></i></div>
+                        <h3 class="process-step__title">Cotizas</h3>
+                        <p class="process-step__text">Nos cuentas tu idea por WhatsApp y te asesoramos sin compromiso.</p>
                     </div>
+                    <div class="process-step">
+                        <div class="process-step__number">2</div>
+                        <div class="process-step__icon"><i class="ri-pencil-line"></i></div>
+                        <h3 class="process-step__title">Diseñamos</h3>
+                        <p class="process-step__text">Creamos tu propuesta visual y la ajustamos hasta que sea perfecta.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-step__number">3</div>
+                        <div class="process-step__icon"><i class="ri-printer-line"></i></div>
+                        <h3 class="process-step__title">Producimos</h3>
+                        <p class="process-step__text">Imprimimos y producimos con materiales de alta calidad y tecnología.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-step__number">4</div>
+                        <div class="process-step__icon"><i class="ri-truck-line"></i></div>
+                        <h3 class="process-step__title">Entregamos</h3>
+                        <p class="process-step__text">Entregamos rápido y seguro en todo el país.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                    <div class="portfolio-cta">
-                        <div class="portfolio-cta__box portfolio-cta__box--glass">
-                            <div class="portfolio-cta__layout">
-                                <div class="portfolio-cta__copy">
-                                    <h2 class="portfolio-cta__title">¡Solicita tu Presupuesto Ahora Mismo!</h2>
-                                    <p class="portfolio-cta__text">Escríbenos por WhatsApp y recibe una cotización adaptada a tu proyecto y plazos de entrega.</p>
-                                    <a href="https://wa.me/50661025947/?text=Hola%20VEFOD,%20quiero%20cotizar." target="_blank" rel="noopener" class="btn btn--whatsapp-cta btn--large">
-                                        <span>Cotizar por WhatsApp</span>
-                                        <i class="ri-whatsapp-line"></i>
-                                    </a>
-                                </div>
-                                <div class="portfolio-cta__visual">
-                                    <img src="img/cotizar.png" alt="WhatsApp con VEFOD Media &amp; Diseño: cotiza impresión y rotulación" class="portfolio-cta__phone-img" width="320" height="340" loading="lazy">
-                                </div>
+        <!-- CTA WhatsApp con teléfono -->
+        <section class="presupuesto-cta section" id="cotizar">
+            <div class="container">
+                <div class="portfolio-cta">
+                    <div class="portfolio-cta__box portfolio-cta__box--glass">
+                        <div class="portfolio-cta__layout">
+                            <div class="portfolio-cta__copy">
+                                <h2 class="portfolio-cta__title">¡Solicita tu Presupuesto Ahora Mismo!</h2>
+                                <p class="portfolio-cta__text">Escríbenos por WhatsApp y recibe una cotización adaptada a tu proyecto y plazos de entrega.</p>
+                                <a href="https://wa.me/50661025947/?text=Hola%20VEFOD,%20quiero%20cotizar." target="_blank" rel="noopener" class="btn btn--whatsapp-cta btn--large">
+                                    <span>Cotizar por WhatsApp</span>
+                                    <i class="ri-whatsapp-line"></i>
+                                </a>
+                            </div>
+                            <div class="portfolio-cta__visual">
+                                <img src="img/cotizar.png" alt="WhatsApp con VEFOD Media &amp; Diseño: cotiza impresión y rotulación" class="portfolio-cta__phone-img" width="320" height="340" loading="lazy">
                             </div>
                         </div>
                     </div>
@@ -304,53 +381,24 @@
             </div>
         </section>
 
-        <!-- Why Choose Us Section -->
-        <section class="why-choose section" id="why-choose">
+        <!-- CTA Final - Banner oscuro -->
+        <section class="dark-cta" id="cta-final">
+            <div class="dark-cta__media" aria-hidden="true">
+                <img src="img/portfolio/impresion-gran-formato.jpg" alt="" class="dark-cta__img">
+            </div>
             <div class="container">
-                <div class="section__header">
-                    <h2 class="section__title">¿POR QUÉ ELEGIR VEFOD?</h2>
-                    <p class="section__subtitle">Las ventajas que nos hacen únicos</p>
-                </div>
-
-                <div class="why-choose__grid">
-                    <div class="why-choose__item">
-                        <div class="why-choose__icon">
-                            <i class="ri-award-line"></i>
-                        </div>
-                        <div class="why-choose__content">
-                            <h3 class="why-choose__title">Impresión de alta calidad</h3>
-                            <p class="why-choose__description">Trabajamos con procesos y materiales de alto estándar para resultados duraderos.</p>
-                        </div>
-                    </div>
-
-                    <div class="why-choose__item">
-                        <div class="why-choose__icon">
-                            <i class="ri-time-line"></i>
-                        </div>
-                        <div class="why-choose__content">
-                            <h3 class="why-choose__title">Equipos profesionales</h3>
-                            <p class="why-choose__description">Contamos con maquinaria y herramientas especializadas para cada tipo de proyecto.</p>
-                        </div>
-                    </div>
-
-                    <div class="why-choose__item">
-                        <div class="why-choose__icon">
-                            <i class="ri-customer-service-2-line"></i>
-                        </div>
-                        <div class="why-choose__content">
-                            <h3 class="why-choose__title">Entrega rápida</h3>
-                            <p class="why-choose__description">Nos enfocamos en tiempos de respuesta ágiles sin perder calidad en la entrega.</p>
-                        </div>
-                    </div>
-
-                    <div class="why-choose__item">
-                        <div class="why-choose__icon">
-                            <i class="ri-price-tag-3-line"></i>
-                        </div>
-                        <div class="why-choose__content">
-                            <h3 class="why-choose__title">Atención personalizada</h3>
-                            <p class="why-choose__description">Te asesoramos de forma cercana para adaptar cada solución a tu necesidad real.</p>
-                        </div>
+                <div class="dark-cta__content">
+                    <h2 class="dark-cta__title">¿Listo para hacer destacar tu marca?</h2>
+                    <p class="dark-cta__text">Cotiza tu proyecto hoy mismo y recibe asesoría personalizada.</p>
+                    <div class="dark-cta__buttons">
+                        <a href="https://wa.me/50661025947/?text=Hola%20VEFOD,%20quiero%20cotizar." target="_blank" rel="noopener" class="btn btn--whatsapp-cta btn--large">
+                            <span>Cotizar por WhatsApp</span>
+                            <i class="ri-whatsapp-line"></i>
+                        </a>
+                        <a href="https://www.google.com/maps/place/Vefod/@9.8967013,-84.0845157,13z/data=!4m6!3m5!1s0x8fa0e3798a468233:0x4bdc61453148bd44!8m2!3d9.8967013!4d-84.0433164!16s%2Fg%2F11w2h8wh1_?entry=ttu" target="_blank" rel="noopener" class="btn btn--dark-outline btn--large">
+                            <span>Ver Ubicación</span>
+                            <i class="ri-map-pin-line"></i>
+                        </a>
                     </div>
                 </div>
             </div>
