@@ -20,7 +20,7 @@
 --------------------------------------------------------------*/
 /* Clase para páginas sin hero: aplicar en servicios, productos, contacto */
 .page-header {
-    background-color: rgba(0, 26, 44, 0.97) !important;
+    background-color: rgba(0, 18, 38, 0.97) !important;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     position: sticky !important;
@@ -443,8 +443,19 @@
         order: 2;
     }
 
-    .about__img {
+    .about__img,
+    .about__video {
         height: 280px;
+    }
+
+    .about--split .about__image--video {
+        aspect-ratio: 16 / 9;
+        height: auto;
+    }
+
+    .about--split .about__video {
+        height: 100%;
+        min-height: 200px;
     }
 
     .about__stats {
