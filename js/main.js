@@ -510,6 +510,32 @@ if (currentYearElement) {
     currentYearElement.textContent = new Date().getFullYear();
 }
 
+/*=============== ABOUT VIDEO (autoplay sin controles) ===============*/
+function initAboutVideo() {
+    const video = document.querySelector('.about__video');
+    if (!video) return;
+
+    const playVideo = () => {
+        video.muted = true;
+        const playPromise = video.play();
+        if (playPromise && typeof playPromise.catch === 'function') {
+            playPromise.catch(() => {});
+        }
+    };
+
+    playVideo();
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                playVideo();
+            }
+        });
+    }, { threshold: 0.2 });
+
+    observer.observe(video);
+}
+
 /*=============== ABOUT COUNTERS ===============*/
 function initAboutCounters() {
     const counters = document.querySelectorAll('.about__stats .stat__number[data-target], .hero-stats .hero-stat__number[data-target]');
@@ -664,6 +690,7 @@ function initWorksCarousel() {
 
 /*=============== INITIALIZE WHEN DOM IS LOADED ===============*/
 document.addEventListener('DOMContentLoaded', function() {
+    initAboutVideo();
     initAboutCounters();
     initWorksCarousel();
 
