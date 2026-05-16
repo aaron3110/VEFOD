@@ -4155,6 +4155,31 @@ button {
     max-width: var(--container-max-width);
 }
 
+#services-preview .section__eyebrow {
+    font-size: var(--font-size-base);
+}
+
+#services-preview .section__header--landing .section__title {
+    font-size: clamp(2rem, 3.2vw, 2.75rem);
+}
+
+#services-preview .section__subtitle {
+    font-size: var(--font-size-xl);
+    max-width: 780px;
+}
+
+#services-preview .services-grid--six .service-card-v2__title {
+    font-size: var(--font-size-2xl);
+}
+
+#services-preview .services-grid--six .service-card-v2__text {
+    font-size: var(--font-size-lg);
+}
+
+#services-preview .services-grid--six .service-card-v2__link {
+    font-size: var(--font-size-lg);
+}
+
 .services-preview__grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
