@@ -1471,6 +1471,63 @@ button {
     }
 }
 
+/* Pantallas anchas: contenedor y hero ocupan más ancho */
+@media screen and (min-width: 1280px) {
+    :root {
+        --container-max-width: 1240px;
+        --container-padding: 1.25rem;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    :root {
+        --container-max-width: 1380px;
+        --container-padding: 2rem;
+    }
+
+    .hero__grid {
+        gap: var(--spacing-12);
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr);
+    }
+
+    .hero__visual {
+        max-width: none;
+    }
+
+    .hero__content--left .hero__description {
+        max-width: 620px;
+        font-size: var(--font-size-xl);
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    :root {
+        --container-max-width: 1520px;
+        --container-padding: 2.5rem;
+    }
+
+    .hero__grid {
+        gap: var(--spacing-16);
+    }
+
+    .hero__content--left .hero__title {
+        font-size: clamp(2.35rem, 2.6vw, 3.85rem);
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    :root {
+        --container-max-width: min(1720px, 92vw);
+        --container-padding: 3rem;
+    }
+
+    .hero__grid {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
 /* Laptops pequeñas (1025px - 1280px) - Ajustes adicionales */
 @media screen and (min-width: 1025px) and (max-width: 1280px) {
     .hero__media-main {
@@ -4094,6 +4151,10 @@ button {
     padding: var(--spacing-20) 0;
 }
 
+#services-preview .container {
+    max-width: var(--container-max-width);
+}
+
 .services-preview__grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -5049,51 +5110,22 @@ button {
     margin: 0 auto;
 }
 
-/* Halo azul radial detrás del card */
-.hero__visual::before {
-    content: '';
-    position: absolute;
-    inset: -6% -6% -2% -6%;
-    background:
-        radial-gradient(ellipse 70% 70% at 50% 50%, rgba(0, 86, 179, 0.38) 0%, rgba(0, 18, 38, 0) 62%),
-        radial-gradient(ellipse 90% 90% at 50% 50%, rgba(0, 27, 58, 0.75) 30%, rgba(0, 18, 38, 0) 78%);
-    z-index: -1;
-    filter: blur(24px);
-}
-
 .hero__visual-card {
     position: relative;
     width: 100%;
-    padding: 10px;
-    border-radius: var(--radius-3xl);
-    background: linear-gradient(145deg, rgba(0, 43, 82, 0.95) 0%, rgba(0, 27, 58, 0.98) 100%);
-    border: 1px solid rgba(0, 168, 204, 0.35);
-    box-shadow:
-        0 24px 56px rgba(0, 8, 20, 0.55),
-        0 0 0 1px rgba(255, 255, 255, 0.06) inset,
-        0 0 40px rgba(0, 168, 204, 0.12);
-    overflow: hidden;
-}
-
-/* Viñeta suave en los bordes internos del card */
-.hero__visual-card::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    pointer-events: none;
-    z-index: 1;
-    box-shadow:
-        inset 0 0 48px rgba(0, 18, 38, 0.45),
-        inset 0 0 0 1px rgba(0, 168, 204, 0.15);
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    overflow: visible;
 }
 
 .hero__visual-img {
     width: 100%;
     height: auto;
     display: block;
-    object-fit: cover;
-    border-radius: calc(var(--radius-3xl) - 6px);
+    object-fit: contain;
+    border-radius: var(--radius-2xl);
     vertical-align: middle;
 }
 
@@ -5280,13 +5312,8 @@ button {
         max-width: 100%;
     }
 
-    .hero__visual-card {
-        padding: 8px;
-        border-radius: var(--radius-2xl);
-    }
-
     .hero__visual-img {
-        border-radius: calc(var(--radius-2xl) - 4px);
+        border-radius: var(--radius-xl);
     }
 
     .about--split {
@@ -5481,12 +5508,57 @@ button {
     text-transform: uppercase;
 }
 
-/*=============== SERVICES GRID v2 (4 columnas × 2 filas con icono superpuesto) ===============*/
+/*=============== SERVICES GRID v2 (icono superpuesto) ===============*/
 .services-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: var(--spacing-6);
     margin-bottom: var(--spacing-12);
+}
+
+.services-grid--six {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--spacing-8);
+}
+
+.services-grid--six .service-card-v2__img {
+    height: 320px;
+}
+
+.services-grid--six .service-card-v2__icon {
+    width: 64px;
+    height: 64px;
+    font-size: 1.85rem;
+    bottom: -32px;
+    left: var(--spacing-8);
+}
+
+.services-grid--six .service-card-v2__body {
+    padding: var(--spacing-10) var(--spacing-8) var(--spacing-8);
+}
+
+.services-grid--six .service-card-v2__title {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-3);
+}
+
+.services-grid--six .service-card-v2__text {
+    font-size: var(--font-size-base);
+    line-height: 1.65;
+}
+
+.services-grid--six .service-card-v2__link {
+    font-size: var(--font-size-base);
+}
+
+.service-card-v2--negocios .service-card-v2__media {
+    background: linear-gradient(160deg, var(--dark-blue) 0%, var(--primary-color) 45%, var(--secondary-color) 100%);
+    border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
+}
+
+.service-card-v2--negocios .service-card-v2__img {
+    object-fit: contain;
+    object-position: center center;
 }
 
 .service-card-v2 {
@@ -5761,6 +5833,10 @@ button {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+    .services-grid--six .service-card-v2__img {
+        height: 280px;
+    }
+
     .process-steps {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: var(--spacing-10) var(--spacing-6);
@@ -5813,7 +5889,15 @@ button {
 
     .services-grid {
         grid-template-columns: 1fr;
-        gap: var(--spacing-5);
+        gap: var(--spacing-6);
+    }
+
+    .services-grid--six .service-card-v2__img {
+        height: 260px;
+    }
+
+    .services-grid--six .service-card-v2__body {
+        padding: var(--spacing-8) var(--spacing-6) var(--spacing-6);
     }
 
     .process-steps {
@@ -5838,5 +5922,16 @@ button {
         width: 100%;
         max-width: 340px;
         justify-content: center;
+    }
+}
+
+/* About y features en pantallas muy anchas */
+@media screen and (min-width: 1600px) {
+    .about--split .about__content {
+        gap: var(--spacing-20);
+    }
+
+    .features-bar__grid {
+        gap: var(--spacing-8);
     }
 }
