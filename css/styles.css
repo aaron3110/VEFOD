@@ -5206,10 +5206,11 @@ button {
 
 .about--split .about__description {
     font-size: var(--font-size-base);
+    font-weight: var(--font-bold);
     color: var(--gray-700);
     line-height: 1.8;
     margin-bottom: var(--spacing-5);
-    text-align: left !important;
+    text-align: justify;
 }
 
 .about--split .about__description:last-child {
@@ -5350,7 +5351,7 @@ button {
     }
 
     .about--split .about__description {
-        text-align: left !important;
+        text-align: justify;
     }
 }
 
@@ -5374,10 +5375,17 @@ button {
     border: 1px solid rgba(0, 57, 94, 0.06);
 }
 
+.features-bar--below-about .features-bar__grid {
+    margin-top: 0;
+}
+
 .feature-item {
     display: flex;
     align-items: flex-start;
+    justify-content: flex-start;
     gap: var(--spacing-4);
+    width: 100%;
+    text-align: left;
 }
 
 .feature-item__icon {
@@ -5403,6 +5411,7 @@ button {
     color: var(--primary-color);
     margin: 0 0 var(--spacing-1);
     line-height: 1.3;
+    text-align: left;
 }
 
 .feature-item__text {
@@ -5410,6 +5419,7 @@ button {
     color: var(--gray-600);
     line-height: 1.5;
     margin: 0;
+    text-align: left;
 }
 
 /*=============== HERO STATS (4 columnas con icono lateral) ===============*/
@@ -5419,13 +5429,16 @@ button {
     gap: var(--spacing-8);
     margin-top: var(--spacing-12);
     padding: 0 var(--spacing-4);
+    justify-items: stretch;
 }
 
 .hero-stat {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: flex-start;
     gap: var(--spacing-3);
+    width: 100%;
+    max-width: 100%;
     text-align: left;
 }
 
@@ -5438,6 +5451,8 @@ button {
 .hero-stat__body {
     display: flex;
     flex-direction: column;
+    text-align: left;
+    align-items: flex-start;
 }
 
 .hero-stat__number {

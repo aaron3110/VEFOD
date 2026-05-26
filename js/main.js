@@ -571,7 +571,7 @@ function initAboutCounters() {
         counter.textContent = `${prefix}0${suffix}`;
     };
 
-    const section = document.querySelector('.features-bar, .about');
+    const section = document.querySelector('.features-bar');
     if (!section) return;
 
     let hasAnimatedInView = false;

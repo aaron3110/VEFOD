@@ -112,8 +112,51 @@
 
     <!-- Main Content -->
     <main>
-        <!-- Features Bar (garantías) -->
-        <section class="features-bar" aria-label="Por qué elegirnos">
+        <!-- About Us Section (texto izquierda + imagen derecha) -->
+        <section class="about about--split section" id="about">
+            <div class="container">
+                <div class="about__content">
+                    <div class="about__text">
+                        <span class="about__eyebrow">SOBRE NOSOTROS</span>
+                        <h2 class="section__title">¿Quiénes Somos?</h2>
+                        <span class="about__divider" aria-hidden="true"></span>
+                        <p class="about__description">
+                            En <strong>VEFOD Media &amp; Diseño</strong> somos una empresa especializada en soluciones integrales
+                            de comunicación visual. Desde 2017 en el mercado costarricense, nos hemos consolidado
+                            como una opción confiable en impresión de gran formato, rotulación y estructuras publicitarias.
+                        </p>
+                        <p class="about__description">
+                            Nuestro enfoque es ayudar a negocios y emprendimientos a destacar, ofreciendo soluciones creativas,
+                            materiales de alta calidad y una ejecución profesional en cada proyecto.
+                        </p>
+                        <p class="about__description">
+                            Contamos con un equipo capacitado en diseño gráfico y producción, comprometido con brindar
+                            resultados que impulsen la imagen y crecimiento de nuestros clientes.
+                        </p>
+                    </div>
+                    <div class="about__image about__image--video">
+                        <video
+                            class="about__video"
+                            src="img/quienes%20somos.mp4"
+                            autoplay
+                            muted
+                            loop
+                            playsinline
+                            disablepictureinpicture
+                            disableremoteplayback
+                            preload="auto"
+                            width="600"
+                            height="540"
+                            aria-label="Video presentación VEFOD Media y Diseño">
+                            Tu navegador no admite la reproducción de video.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Bar + estadísticas (al final del bloque inicial, antes de servicios) -->
+        <section class="features-bar features-bar--below-about" aria-label="Por qué elegirnos">
             <div class="container">
                 <div class="features-bar__grid">
                     <div class="feature-item">
@@ -179,49 +222,6 @@
             </div>
         </section>
 
-        <!-- About Us Section (texto izquierda + imagen derecha) -->
-        <section class="about about--split section" id="about">
-            <div class="container">
-                <div class="about__content">
-                    <div class="about__text">
-                        <span class="about__eyebrow">SOBRE NOSOTROS</span>
-                        <h2 class="section__title">¿Quiénes Somos?</h2>
-                        <span class="about__divider" aria-hidden="true"></span>
-                        <p class="about__description">
-                            En <strong>VEFOD Media &amp; Diseño</strong> somos una empresa especializada en soluciones integrales
-                            de comunicación visual. Desde 2017 en el mercado costarricense, nos hemos consolidado
-                            como una opción confiable en impresión de gran formato, rotulación y estructuras publicitarias.
-                        </p>
-                        <p class="about__description">
-                            Nuestro enfoque es ayudar a negocios y emprendimientos a destacar, ofreciendo soluciones creativas,
-                            materiales de alta calidad y una ejecución profesional en cada proyecto.
-                        </p>
-                        <p class="about__description">
-                            Contamos con un equipo capacitado en diseño gráfico y producción, comprometido con brindar
-                            resultados que impulsen la imagen y crecimiento de nuestros clientes.
-                        </p>
-                    </div>
-                    <div class="about__image about__image--video">
-                        <video
-                            class="about__video"
-                            src="img/quienes%20somos.mp4"
-                            autoplay
-                            muted
-                            loop
-                            playsinline
-                            disablepictureinpicture
-                            disableremoteplayback
-                            preload="auto"
-                            width="600"
-                            height="540"
-                            aria-label="Video presentación VEFOD Media y Diseño">
-                            Tu navegador no admite la reproducción de video.
-                        </video>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Servicios (6 cards con imagen + ícono superpuesto) -->
         <section class="services-preview section" id="services-preview">
             <div class="container">
@@ -263,7 +263,7 @@
                         </div>
                         <div class="service-card-v2__body">
                             <h3 class="service-card-v2__title">Branding y Promocionales</h3>
-                            <p class="service-card-v2__text">Lapiceros, tazas, llaveros, bolos, bolsas ecológicas, libretas, gorras y lanyards.</p>
+                            <p class="service-card-v2__text">Lapiceros, tazas, llaveros, bolsas ecológicas, libretas, gorras y lanyards.</p>
                             <a href="servicios.html" class="service-card-v2__link">Ver más <i class="ri-arrow-right-line"></i></a>
                         </div>
                     </article>
@@ -275,7 +275,7 @@
                         </div>
                         <div class="service-card-v2__body">
                             <h3 class="service-card-v2__title">Papelería Corporativa</h3>
-                            <p class="service-card-v2__text">Tarjetas de presentación, volantes, recibos, talonarios, sellos automáticos, en madera y sello de agua.</p>
+                            <p class="service-card-v2__text">Tarjetas de presentación, volantes, recibos, talonarios, folders, sellos automáticos, en madera y sello de agua.</p>
                             <a href="servicios.html" class="service-card-v2__link">Ver más <i class="ri-arrow-right-line"></i></a>
                         </div>
                     </article>

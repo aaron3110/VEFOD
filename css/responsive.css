@@ -439,6 +439,13 @@
         font-size: var(--font-size-lg) !important;
     }
 
+    .about--split .about__description,
+    .about--split .about__description:first-of-type {
+        font-size: var(--font-size-base) !important;
+        font-weight: var(--font-bold) !important;
+        text-align: justify !important;
+    }
+
     .about__image {
         order: 2;
     }
